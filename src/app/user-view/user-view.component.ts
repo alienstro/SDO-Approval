@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { EndorseComponent } from '../endorse/endorse.component';
 import { Applicant, Assessment, BorrowersInformation, CoMakersInformation, LoanDetails } from '../interface/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ApplicationService } from '../services/application.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DOC_URL } from '../constant';
+import { EndorseComponent } from '../endorse/endorse.component';
 
 @Component({
   selector: 'app-user-view',
@@ -38,7 +38,7 @@ export class UserViewComponent {
   }
 
   openEndorse(): void {
-    this.dialog.open(EndorseComponent, { width: '50rem', maxWidth: '50rem', height: '21.5rem', data: { application_id: this.application_id } })
+    this.dialog.open(EndorseComponent, { width: '40rem', maxWidth: '40rem', height: '12.5rem', data: { application_id: this.application_id } })
   }
 
   transform(url: string) {

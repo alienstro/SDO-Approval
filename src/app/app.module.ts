@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     ForwardViewComponent,
     AssessViewComponent,
     UserViewComponent,
+    EndorseComponent,
   ],
   imports: [
     BrowserModule,

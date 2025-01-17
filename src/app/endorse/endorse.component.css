@@ -24,6 +24,10 @@
     gap: 1rem;
 }
 
+.body {
+    padding: 1rem;
+}
+
 .undo {
     display: flex;
     justify-content: center;

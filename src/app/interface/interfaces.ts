@@ -173,3 +173,13 @@ export interface SignatureDetails {
     signature_legal: string;
     date_submitted: Date;
 }
+
+export interface ApprovalDetails {
+    approval_id: number;
+    application_id: number;
+    staff_id_asds: number;
+    status_asds: string;
+    staff_id_sds: number;
+    status_sds: string;
+    date_submitted: Date;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { LoanDetails, SignatureDetails } from '../interface/interfaces';
+import { ApprovalDetails, LoanDetails, SignatureDetails } from '../interface/interfaces';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormViewComponent } from '../form-view/form-view.component';
@@ -19,7 +19,7 @@ import { TokenService } from '../services/token.service';
 })
 export class ForwardViewComponent implements OnInit {
   loanDetails: LoanDetails[] = [];
-  signatureDetails: SignatureDetails[] = [];
+  approvalDetails: ApprovalDetails[] = [];
   mergedDetails: any[] = [];
   roleId!: string;
 
@@ -93,28 +93,26 @@ export class ForwardViewComponent implements OnInit {
 
   updateTableData(): void {
     this.mergedDetails = this.loanDetails.map((loan) => {
-      const matchingSignature = this.signatureDetails.find(
-        (sig) => sig.application_id === loan.application_id
+      const matchingApproval = this.approvalDetails.find(
+        (app) => app.application_id === loan.application_id
       );
       return {
         ...loan,
-        ...matchingSignature,
+        ...matchingApproval,
       };
     });
-
+    console.log(this.mergedDetails)
     this.dataSource.data = this.mergedDetails;
   }
 
   applyFilter(): void {
     const searchValue = this.searchKey.trim().toLowerCase();
     this.dataSource.filterPredicate = (data: any, filter: string) => {
-      const status = this.roleId === '4' ? data.signature_hr :
-        this.roleId === '5' ? data.signature_admin :
-          this.roleId === '6' ? data.signature_legal : 'Pending';
+      const status =  this.roleId === '7' ? data.status_asds : this.roleId === '8' ? data.status_sds : 'Pending';
       return (
         (data.last_name.toLowerCase().includes(searchValue) ||
           data.first_name.toLowerCase().includes(searchValue)) &&
-        (!this.filterStatus || (status ? 'Endorsed' : 'Not Endorsed') === this.filterStatus)
+        (!this.filterStatus || (status ? 'Approved' : 'Not Approved') === this.filterStatus)
       );
     };
     this.dataSource.filter = searchValue + this.filterStatus;
@@ -128,8 +126,8 @@ export class ForwardViewComponent implements OnInit {
       this.updateTableData();
     });
 
-    this.applicationService.signatureDetails$.subscribe((signature) => {
-      this.signatureDetails = signature;
+    this.applicationService.approvalDetails$.subscribe((approval) => {
+      this.approvalDetails = approval;
       this.updateTableData();
     });
   }

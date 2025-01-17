@@ -1,22 +1,11 @@
 <div class="endorse">
     <div class="main">
         <div class="header">
-            <h1>Signature</h1>
-
-            <div class="header-buttons">
-                <div class="upload">
-                    <button class="button-1" (click)="triggerFileInput()">Upload</button>
-                    <input type="file" #fileInput accept="image/*" (change)="onFileSelected($event)" hidden />
-                </div>
-                <div class="undo">
-                    <button class="button-1" (click)="clearSignature()">Undo</button>
-                </div>
-            </div>
-
+            <h1>Approval</h1>
         </div>
 
-        <div class="signature-container">
-            <canvas #signaturePad class="signature-canvas" width="800" height="300"></canvas>
+        <div class="body">
+            <p>Are you sure you want to approve this?</p>
         </div>
 
         <div class="footer">

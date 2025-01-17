@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
-import { Applicant, Assessment, BorrowersInformation, CoMakersInformation, LoanApplication, LoanDetails, MergedLoanApplicationDetails, SignatureDetails } from '../interface/interfaces';
+import { Applicant, ApprovalDetails, Assessment, BorrowersInformation, CoMakersInformation, LoanApplication, LoanDetails, MergedLoanApplicationDetails, SignatureDetails } from '../interface/interfaces';
 import { API_URL } from '../constant';
 
 @Injectable({
@@ -16,6 +16,7 @@ export class ApplicationService {
   private _mergedLoanApplicationDetails = new BehaviorSubject<MergedLoanApplicationDetails[]>([]);
   private _assessmentForm = new BehaviorSubject<Assessment[]>([]);
   private _signatureDetails = new BehaviorSubject<SignatureDetails[]>([]);
+  private _approvalDetails = new BehaviorSubject<ApprovalDetails[]>([]);
 
   loanApplication$ = this._loanApplication.asObservable();
   loanDetails$ = this._loanDetails.asObservable();
@@ -24,14 +25,15 @@ export class ApplicationService {
   mergedLoanApplicationDetails$ = this._mergedLoanApplicationDetails.asObservable();
   assessmentForm$ = this._assessmentForm.asObservable();
   signatureDetails$ = this._signatureDetails.asObservable();
+  approvalDetails$ = this._approvalDetails.asObservable();
 
   constructor(private http: HttpClient) {
     forkJoin({
       loanDetails: this.getLoanDetails(),
-      signatureDetails: this.getSignatureDetails()
-    }).subscribe(({ loanDetails, signatureDetails }) => {
+      approvalDetails: this.getApprovalDetails()
+    }).subscribe(({ loanDetails, approvalDetails }) => {
       this._loanDetails.next(loanDetails);
-      this._signatureDetails.next(signatureDetails);
+      this._approvalDetails.next(approvalDetails);
     });
   }
 
@@ -63,6 +65,10 @@ export class ApplicationService {
 
   getSignatureDetails(): Observable<SignatureDetails[]> {
     return this.http.get<SignatureDetails[]>(`${API_URL}/getSignatureDetails`);
+  }
+
+  getApprovalDetails(): Observable<ApprovalDetails[]> {
+    return this.http.get<ApprovalDetails[]>(`${API_URL}/getApprovalDetails`);
   }
 
   /// GET DATA BY ID
@@ -141,14 +147,48 @@ export class ApplicationService {
 
     if (index !== -1) {
       currentSignatureDetails[index] = {
-        ...currentSignatureDetails[index], 
-        signature_hr: signature 
+        ...currentSignatureDetails[index],
+        signature_hr: signature
       };
     } else {
       console.log("Error Updating Signature Details")
     }
 
     this._signatureDetails.next([...currentSignatureDetails]);
+  }
+
+  updateApprovalDetails(approval: string, application_id: number, department_id: string): void {
+
+    const currentApprovalDetails = this._approvalDetails.getValue();
+
+    console.log(currentApprovalDetails);
+
+    const index = currentApprovalDetails.findIndex(app => app.application_id === application_id);
+
+    console.log(index);
+
+    if (department_id === '7') {
+      if (index !== -1) {
+        currentApprovalDetails[index] = {
+          ...currentApprovalDetails[index],
+          status_asds: approval
+        };
+      } else {
+        console.log("Error Updating Approval Details")
+      }
+    } else {
+      if (index !== -1) {
+        currentApprovalDetails[index] = {
+          ...currentApprovalDetails[index], 
+          status_sds: approval 
+        };
+      } else {
+        console.log("Error Updating Approval Details")
+      }
+    }
+
+
+    this._approvalDetails.next([...currentApprovalDetails]);
   }
 
 }

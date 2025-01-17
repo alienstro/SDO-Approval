@@ -28,17 +28,26 @@ export class RequestService {
   //   return this.http.patch(`${API_URL}` + `updateApprovalOSDS`, data);
   // }
 
-  submitSignatureHR(data: any): Observable<any> {
-    return this.http.post(`${API_URL}` + `submitSignatureHR`, data);
+  // submitSignatureHR(data: any): Observable<any> {
+  //   return this.http.post(`${API_URL}` + `submitSignatureHR`, data);
+  // }
+
+  // submitSignatureAdmin(data: any): Observable<any> {
+  //   return this.http.post(`${API_URL}` + `submitSignatureAdmin`, data);
+  // }
+
+  // submitSignatureLegal(data: any): Observable<any> {
+  //   return this.http.post(`${API_URL}` + `submitSignatureLegal`, data);
+  // }
+
+  submitApprovalASDS(data: any): Observable<any> {
+    return this.http.post(`${API_URL}` + `submitApprovalASDS`, data);
   }
 
-  submitSignatureAdmin(data: any): Observable<any> {
-    return this.http.post(`${API_URL}` + `submitSignatureAdmin`, data);
+  submitApprovalSDS(data: any): Observable<any> {
+    return this.http.post(`${API_URL}` + `submitApprovalSDS`, data);
   }
 
-  submitSignatureLegal(data: any): Observable<any> {
-    return this.http.post(`${API_URL}` + `submitSignatureLegal`, data);
-  }
 
   // addLoanApplication(data: any): Observable<any> {
   //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

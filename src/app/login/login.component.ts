@@ -8,10 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrl: './login.component.css',
-    standalone: false
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
+  standalone: false
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -52,9 +52,13 @@ export class LoginComponent implements OnInit {
 
     if (role === '7' || role === '8') {
       this.router.navigate(['/forward-view']);
+
     } else {
       this.router.navigate(['/login']);
       console.log("No authority")
+      this.snackBar.open('You are not allowed here!', '', {
+        duration: 3000
+      })
     }
   }
 
@@ -65,8 +69,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], 
-      password: ['', Validators.required] 
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
 
