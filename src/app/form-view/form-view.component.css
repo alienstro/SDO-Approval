@@ -1,0 +1,53 @@
+.form-view {
+    padding: 2rem 2rem 0 2rem;
+  }
+  
+  .form-field-container {
+    padding-top: 0.5em;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .form-split {
+    flex: 1;
+  }
+  
+  .type-loan {
+    padding-left: 1rem;
+  }
+  .purpose {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    pointer-events: none; 
+  }
+  
+  .next-button-container {
+    display: flex;
+    justify-content: end;
+  }
+  
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dialog-header h2 {
+    margin: 0;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  

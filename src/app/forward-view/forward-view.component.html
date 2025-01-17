@@ -1,0 +1,138 @@
+<div class="forward-view">
+    <div class="main-content">
+
+        <div class="header">
+            <h1 class="header-text">Endorse</h1>
+        </div>
+
+        <div class="search">
+            <div class="search">
+                <img class="search-img" src="/magnifying_glass.svg" alt="magnifying_glass" />
+                <input type="text" placeholder="Search Employee" class="search-input" [(ngModel)]="searchKey"
+                    (input)="applyFilter()" />
+            </div>
+
+            <div class="status-filter">
+                <div class="form-field">
+                    <select [(ngModel)]="filterStatus" (change)="applyFilter()">
+                        <option value="">Filter Status</option>
+                        <option value="Not Endorsed">Not Endorsed</option>
+                        <option value="Endorsed">Endorsed</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="table">
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- Loan Id Column -->
+                    <ng-container matColumnDef="loan_details_id">
+                        <th mat-header-cell *matHeaderCellDef> Loan Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.loan_details_id}} </td>
+                    </ng-container>
+
+                    <!-- Surname Column -->
+                    <ng-container matColumnDef="last_name">
+                        <th mat-header-cell *matHeaderCellDef> Surname </th>
+                        <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+                    </ng-container>
+
+                    <!-- First Name Column -->
+                    <ng-container matColumnDef="first_name">
+                        <th mat-header-cell *matHeaderCellDef> First Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+                    </ng-container>
+
+                    <!-- Middle Initial Column -->
+                    <ng-container matColumnDef="middle_name">
+                        <th mat-header-cell *matHeaderCellDef> Middle Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.middle_name}} </td>
+                    </ng-container>
+
+                    <!-- Loan Amount Column -->
+                    <ng-container matColumnDef="loan_amount">
+                        <th mat-header-cell *matHeaderCellDef> Loan Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.loan_amount}} </td>
+                    </ng-container>
+
+                    <!-- TypeOfLoan Column -->
+                    <ng-container matColumnDef="type_of_loan">
+                        <th mat-header-cell *matHeaderCellDef> Type of Loan </th>
+                        <td mat-cell *matCellDef="let element"> {{element.type_of_loan | titlecase}} </td>
+                    </ng-container>
+
+                    <!-- Purpose Column -->
+                    <ng-container matColumnDef="purpose">
+                        <th mat-header-cell *matHeaderCellDef> Purpose </th>
+                        <td mat-cell *matCellDef="let element"> {{element.purpose}} </td>
+                    </ng-container>
+
+                    <!-- Date Submitted Column -->
+                    <ng-container matColumnDef="date_submitted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Submitted </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{ element.date_submitted | date: 'medium' }}
+                        </td>
+                    </ng-container>
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let loan">
+                            <button class="button-action" (click)="openView(loan)">
+                                <img src="/previewpane.svg" alt="eye button icon">
+                                <span>View</span>
+                            </button>
+
+                            <!-- <button class="button-action" (click)="openAssessmentForm(loan)">
+                                <img src="/previewpane.svg" alt="eye button icon">
+                                <span>Assessment</span>
+                            </button>
+
+                            <button class="button-action" (click)="openEndorse(loan)">
+                                <img src="/checked.svg" alt="eye button icon">
+                                <span>Endorse</span>
+                            </button> -->
+                        </td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+
+                        <!-- HR -->
+                        <ng-container *ngIf="this.roleId === '4'">
+                            <td mat-cell *matCellDef="let element"> {{element.signature_hr ? 'Endorsed' : 'Not Endorsed'
+                                }}</td>
+                        </ng-container>
+
+                        <!-- ADMIN -->
+                        <ng-container *ngIf="this.roleId === '5'">
+                            <td mat-cell *matCellDef="let element"> {{element.signature_admin ? 'Endorsed' : 'Not
+                                Endorsed' }}</td>
+                        </ng-container>
+
+                        <!-- LEGAL -->
+                        <ng-container *ngIf="this.roleId === '6'">
+                            <td mat-cell *matCellDef="let element"> {{element.signature_legal ? 'Endorsed' : 'Not
+                                Endorsed' }}</td>
+                        </ng-container>
+
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+
+        </div>
+    </div>
+</div>

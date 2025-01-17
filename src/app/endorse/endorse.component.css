@@ -1,0 +1,104 @@
+.endorse {
+    height: 100%;
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.undo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature-container {
+    display: flex;
+    padding: 1rem 1rem 0 1rem;
+    height: 12rem;
+
+}
+
+/* .signature {
+    background-color: rgb(224, 224, 224);
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 5px;
+} */
+
+.signature-canvas {
+    border: 1px solid #ddd;
+    cursor: crosshair;
+    width: 100%; /* Makes it responsive */
+    height: 300px; /* Increase height for more space */
+    max-width: 800px; /* Maximum width for larger screens */
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.button-1 {
+  background-color: #0165B2;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  transition: 0.2s ease;
+}
+
+.button-1:hover{
+    background-color: #004c86;
+}
+
+canvas {
+
+    height: 9rem;
+}
+
+.signature-canvas {
+    border: 1px solid #ddd;
+    cursor: crosshair;
+    height: 9rem;
+}
+

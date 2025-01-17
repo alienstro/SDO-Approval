@@ -1,0 +1,37 @@
+<div class="body">
+    <div class="left-container">
+      <div class="img-container">
+        <img src="/DEPEDLOGO.svg" alt="deped logo" />
+      </div>
+    </div>
+  
+    <div class="right-container">
+      <form class="forms" (ngSubmit)="onLogin()" [formGroup]="loginForm">
+        <div class="welcome-message">
+          <h1>Welcome</h1>
+          <p>Login to your account to continue (Approval)</p>
+        </div>
+  
+        <div class="inputs">
+          <div class="group">
+            <img src="/maleuser.svg" alt="" class="icon" />
+            <input placeholder="Email" class="input" formControlName="email" />
+          </div>
+          <div class="group">
+            <img src="/lock.svg" alt="" class="icon" />
+            <input
+              placeholder="Password"
+              class="input"
+              type="password"
+              formControlName="password"
+            />
+          </div>
+        </div>
+  
+        <div class="button">
+          <button type="submit" (click)="onLogin()">LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

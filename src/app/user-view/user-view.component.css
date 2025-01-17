@@ -1,0 +1,138 @@
+.user-view {
+  padding: 1rem 2rem 1rem 2rem;
+  /* height: 100%; */
+}
+
+.header-text {
+  font-size: 2rem;
+  opacity: 60%;
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.back:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile-body {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* width: 100%; */
+  height: auto;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.profile-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  border: 1px solid #ccc;
+  height: 8.7rem;
+  width: 10rem;
+}
+
+.profile-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.profile-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.profile-table td:first-child {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+.profile-table td:nth-child(2) {
+  background-color: #f9f9f9;
+  width: 100rem;
+}
+
+.details {
+  width: 100%;
+  height: 32rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+}
+
+.mat-mdc-tab-body-content.ng-tns-c1615493245-0.ng-trigger.ng-trigger-translateTab {
+  padding: 1rem;
+}
+
+.details-table {
+  border-collapse: collapse;
+  margin-left: 1rem;
+  margin: 1rem;
+}
+
+.details-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.details-table td:first-child {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+.details-table td:nth-child(2) {
+  background-color: #f9f9f9;
+  width: 100rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.button-action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border: none;
+  background-color: #0165b2;
+  color: white;
+  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+  border-radius: 5px;
+  transition: 0.2s ease;
+  gap: 0.3rem;
+}
+
+.button-action:hover {
+    cursor: pointer;
+    background-color: #004e89;
+}
+
+iframe {
+  width: 100%;
+  height: 26rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

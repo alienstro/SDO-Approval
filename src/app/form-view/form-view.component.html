@@ -1,0 +1,352 @@
+<div class="form-view">
+    <div class="dialog-header">
+        <h5>Provident Loan Application Details</h5>
+        <button mat-icon-button (click)="closeDialog()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <div class="dialog-content">
+        <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <!-- <mat-step [completed]="true"> -->
+            <mat-step [completed]="loanDetailsForm.valid">
+                <form [formGroup]="loanDetailsForm">
+                    <ng-template matStepLabel>Loan Details</ng-template>
+                    <div class="form-field-container">
+                        <div class="form-field">
+                            <div class="form-split">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Loan Amount</mat-label>
+                                    <input matInput formControlName="loanAmount" readonly  />
+                                </mat-form-field>
+                            </div>
+                            <div class="form-split">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Loan Application Number</mat-label>
+                                    <input matInput required="" placeholder="123456" formControlName="loanNumber"
+                                        required type="number" readonly />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="form-field form-split">
+                                <div class="form-split">
+                                    <p>Type of Loan:</p>
+                                    <div class="purpose">
+                                        <p>Multi-Purpose</p>
+                                        <mat-radio-group required="" aria-label="Select an option" class="purpose"
+                                            formControlName="loanType" >
+                                            <div class="type-loan purpose">
+                                                <mat-radio-button value="Multi-Purpose (new)"
+                                                    class="example-margin">New</mat-radio-button>
+                                                <mat-radio-button value="Multi-Purpose (renewal)"
+                                                    class="example-margin">Renewal</mat-radio-button>
+                                            </div>
+                                            <mat-radio-button value="additional"
+                                                class="example-margin">Additional</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                                </div>
+                                <div class="form-split">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Term</mat-label>
+                                        <input matInput placeholder="Php 1.00" formControlName="term" required
+                                            type="number" readonly />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="form-split purpose">
+                                <p>Purpose:</p>
+                                <mat-radio-group required aria-label="Select an option" formControlName="purpose" readonly >
+                                    <mat-radio-button *ngFor="let item of purposeArr" [value]="item">
+                                        {{ item }}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Other (Specify)</mat-label>
+                                    <input matInput placeholder="Other (Specify)" formControlName="otherPurpose" readonly />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next-button-container">
+                        <button mat-button matStepperNext>Next Step</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [completed]="borrowerInfoForm.valid">
+                <form [formGroup]="borrowerInfoForm">
+                    <ng-template matStepLabel>Borrower's Information</ng-template>
+                    <div class="form-field-container">
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Lastname</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="lastName" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Firstname</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="firstname" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Middle Initial</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="middleName" readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Region</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="region" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Province</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="province" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>City</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="city" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Barangay</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="barangay" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Street</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="street" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Zip Code</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="zipcode" type="number"
+                                    required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Employee no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="employeeNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Employment Status</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="employeeStatus" required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Date of Birth</mat-label>
+                                <input matInput placeholder="YYYY-MM-DD" formControlName="birth" required type="date" readonly />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Age</mat-label>
+                                <input matInput placeholder="Age" formControlName="age" required type="number" readonly />
+                            </mat-form-field>
+                        </div>
+
+
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Office</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="office" required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Monthly Salary (PHP)</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="salary" required readonly />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Office tel no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="officeTelNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Years in service</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="yearService" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Mobile no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="mobileNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    <div class="next-button-container">
+                        <button mat-button matStepperNext>
+                            Next Step
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [completed]="comakerInfoForm.valid">
+                <form [formGroup]="comakerInfoForm">
+                    <ng-template matStepLabel>Co-Maker's Information</ng-template>
+                    <div class="form-field-container">
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Lastname</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="lastName" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Firstname</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="firstname" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Middle Initial</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="middleName" readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Region</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="region" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Province</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="province" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>City</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="city" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Barangay</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="barangay" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Street</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="street" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Zip Code</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="zipcode" type="number"
+                                    required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Employee no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="employeeNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Employment Status</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="employeeStatus" required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Date of Birth</mat-label>
+                                <input matInput placeholder="YYYY-MM-DD" formControlName="birth" required type="date" readonly />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Age</mat-label>
+                                <input matInput placeholder="Age" formControlName="age" required type="number" readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Office</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="office" required readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Monthly Salary (PHP)</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="salary" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Office tel no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="officeTelNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-field">
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Years in service</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="yearService" required readonly />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="form-split">
+                                <mat-label>Mobile no.</mat-label>
+                                <input matInput placeholder="Php 1.00" formControlName="mobileNo" required
+                                    type="number" readonly />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="next-button-container">
+                        <button mat-button matStepperNext>
+                            Next Step
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Borrower's Agreement</ng-template>
+                <p>
+                    I hereby apply for a Provident Fund Loan in the amount of PESOS: Zero
+                    Pesos (P 0). In consideration of the grant thereof, I promise to pay all
+                    installments due based on the attached amortization schedule and bind
+                    myself with the terms and conditions of the loan as stipulated in the
+                    applicable guidelines of the DepEd Provident Fund. This document also
+                    serves as the Promissory Note upon approval of this loan.
+                </p>
+
+                <p>
+                    Accordingly, I hereby authorize the deductions of the monthly
+                    amortization from my salary. Should I be separated from the service, I
+                    also hereby agree to settle my outstanding loan balance before the date
+                    of my retirement/separation from the service, either through full
+                    payment in cash or through the execution of a notarized Promissory Note.
+                </p>
+
+                <div class="next-button-container">
+                    <button mat-button matStepperNext>Next Step</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Co maker's Agreement</ng-template>
+                <p>
+                    I hereby agree to assume all the outstanding obligations for the grant
+                    of this loan should the principal borrower be separated from the
+                    service, and either retirement or separation benefits due to him/her is
+                    not received or is insufficient to settle the borrower's outstanding
+                    loan, and upon proper notification by the Provident Fund Secretariat.
+                </p>
+
+                <p>
+                    Accordingly, I hereby authorize the monthly deduction from my salary of
+                    the amortizations for the outstanding obligation of the principal
+                    borrower until his/her loan is fully paid.
+                </p>
+                <div class="next-button-container">
+                    <button mat-button matStepperNext>Next Step</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done!</ng-template>
+                <p>Thank you for filling up the application form</p>
+            </mat-step>
+        </mat-stepper>
+    </div>
+    <div class="dialog-actions">
+        <button mat-button (click)="closeDialog()" class="close-button">Close</button>
+    </div>
+    <div>
+    </div>

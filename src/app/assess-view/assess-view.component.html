@@ -1,0 +1,182 @@
+<div class="form-view">
+    <div class="dialog-header">
+        <h5>Assessment Form</h5>
+        <button mat-icon-button (click)="closeDialog()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <div class="dialog-content">
+        <mat-stepper orientation="vertical"  [linear]="true" #stepper>
+            <!-- Step 1 -->
+            <mat-step>
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Documents Submitted (2 copies each)</ng-template>
+                    <div class="form-field-container">
+                        <mat-checkbox formControlName="loanApplicationForm" (click)="$event.preventDefault()">Loan Application Form (LAF)</mat-checkbox>
+                        <mat-checkbox formControlName="authorizationToDeduct">Authorization to Deduct</mat-checkbox>
+                        <mat-checkbox formControlName="latestPaySlip">Latest Copy of Pay Slip</mat-checkbox>
+                        <mat-checkbox formControlName="photocopyDepEdId">Photocopy of DepEd ID</mat-checkbox>
+                        <mat-checkbox formControlName="approvedAppointment">Approved Appointment <br>(for FIRST TIME
+                            borrowers and Co-terminus employees only)</mat-checkbox>
+                        <mat-checkbox formControlName="proofCoTerminus">Document showing proof that the co-terminus
+                            employee has rendered at least 2 years service in DepEd (e.g., Notarized Contract of
+                            Service)</mat-checkbox>
+                        <mat-label>Others (Specify)</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Specify</mat-label>
+                            <input matInput formControlName="othersSpecify" readonly>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-field-container">
+                        <h6>Additional Documents for Additional Loan:</h6>
+                        <mat-checkbox formControlName="letterOfRequest">Letter of Request</mat-checkbox>
+                        <mat-checkbox formControlName="hospitalization">Hospitalization/Medical Expenses</mat-checkbox>
+                        <mat-checkbox formControlName="medicalAbstract">Medical
+                            Abstract/Certificate/Prescription/Diagnosis</mat-checkbox>
+                        <mat-checkbox formControlName="barangayCertificate">Barangay/Local Certificate/resolution
+                            declaring the borrower's place under State of Calamity</mat-checkbox>
+                    </div>
+
+                    <div class="form-split">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewed By</mat-label>
+                            <input matInput formControlName="reviewedBy" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date</mat-label>
+                            <input matInput type="datetime-local" formControlName="reviewDate">
+                        </mat-form-field>
+                    </div>
+                    <button mat-button matStepperNext>Next Step</button>
+                </form>
+            </mat-step>
+
+            <!-- Step 2 -->
+            <mat-step>
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Completeness and Veracity of Submitted Documents</ng-template>
+                    <div class="form-field-container">
+                        <mat-checkbox formControlName="signedFilledLaf">Signed and completely filled out
+                            LAF</mat-checkbox>
+                        <mat-checkbox formControlName="completeSupportingDocs">Complete supporting documents for type of
+                            loan</mat-checkbox>
+                        <mat-checkbox formControlName="authorizedSignatureLaf">Signature on LAF are by authorized
+                            signatories</mat-checkbox>
+                    </div>
+                    <div class="form-split">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewed By</mat-label>
+                            <input matInput formControlName="reviewedBy" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date</mat-label>
+                            <input matInput type="datetime-local" formControlName="reviewDate">
+                        </mat-form-field>
+                    </div>
+                    <button mat-button matStepperNext>Next Step</button>
+                </form>
+            </mat-step>
+
+            <!-- Step 3 -->
+            <mat-step>
+                <form [formGroup]="thirdFormGroup">
+                    <ng-template matStepLabel>Eligibility of the Borrower and Co-Maker</ng-template>
+                    <div class="form-field-container">
+                        <mat-checkbox formControlName="borrowerReachesRetirement">Borrower will not reach the mandatory
+                            age retirement on or before the maturity of his/her loan</mat-checkbox>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Age</mat-label>
+                            <input matInput type="number" formControlName="borrowersAge" readonly>
+                        </mat-form-field>
+                        <mat-checkbox formControlName="comakersReachesRetirement">Co-Maker will not reach the mandatory
+                            age retirement on or before the maturity of his/her loan</mat-checkbox>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Age</mat-label>
+                            <input matInput type="number" formControlName="comakersAge" readonly>
+                        </mat-form-field>
+                        <mat-checkbox formControlName="borrowersOutstandingPfLoan">Borrower has Outstanding PF Loan
+                            Balance</mat-checkbox>
+                        <div class="form-split">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Current Loan Balance</mat-label>
+                                <input matInput type="number" formControlName="currentLoanBalance" readonly>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Past Due Loan</mat-label>
+                                <input matInput type="number" formControlName="pastDueLoan" readonly>
+                            </mat-form-field>
+                        </div>
+                        <mat-checkbox formControlName="borrowersTakeHomePay">Borrower’s NET Take-Home Pay after
+                            deduction of monthly amortization ...</mat-checkbox>
+                        <mat-checkbox formControlName="paid30Percent">For renewal of loans: Borrower has paid at least
+                            30% of the principal...</mat-checkbox>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Percentage of Principal Paid</mat-label>
+                            <input matInput type="number" formControlName="percentageOfPrincipalPaid" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-split">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Verified by</mat-label>
+                            <input matInput formControlName="reviewedBy" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date</mat-label>
+                            <input matInput type="datetime-local" formControlName="reviewDate">
+                        </mat-form-field>
+                    </div>
+                    <button mat-button matStepperNext>Next Step</button>
+                </form>
+            </mat-step>
+
+            <!-- Step 4 -->
+            <mat-step>
+                <form [formGroup]="fourthFormGroup">
+                    <ng-template matStepLabel>Computation of Loan</ng-template>
+                    <div class="form-field-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Principal Amount of Loan</mat-label>
+                            <input matInput type="number" formControlName="principalLoanAmount" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Net Take Home Pay after Deduction</mat-label>
+                            <input matInput type="number" formControlName="netTakeHomePayAfterAmortization" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Monthly Amortization</mat-label>
+                            <input matInput type="number" formControlName="monthlyAmortization" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Period of Loan</mat-label>
+                            <input matInput type="number" formControlName="periodOfLoan" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Date Processed</mat-label>
+                            <input matInput type="datetime-local" formControlName="dateProcessed" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-split">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Processed by</mat-label>
+                            <input matInput formControlName="processedBy" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reviewed by</mat-label>
+                            <input matInput formControlName="reviewedBy" readonly>
+                        </mat-form-field>
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Remarks</mat-label>
+                        <textarea matInput formControlName="remarks"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-step>
+        </mat-stepper>
+    </div>
+
+    <div class="dialog-actions">
+        <button mat-button (click)="closeDialog()" class="close-button">Close</button>
+    </div>
+</div>

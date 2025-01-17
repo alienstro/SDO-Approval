@@ -1,0 +1,20 @@
+<ng-container *ngIf="showSideBar; else content">
+  <mat-drawer-container class="drawer-container">
+    <mat-drawer #drawer [mode]="sideBarMode" [opened]="sideBarOpen" class="sidebar-container">
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <mat-drawer-content class="main-content-container">
+      <header class="top-nav">
+        <button type="button" (click)="drawer.toggle()" class="toggle-button">
+          <img src="/three-lines.svg" alt="three-lines-button">
+        </button>
+      </header>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</ng-container>
+
+<ng-template #content>
+  <router-outlet></router-outlet>
+</ng-template>
