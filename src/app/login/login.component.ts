@@ -30,13 +30,22 @@ export class LoginComponent implements OnInit {
   onLogin() {
     const loginData = this.loginForm.value;
 
+    if (loginData.email === '' || loginData.password === '') {
+      this.snackBar.open("Email and Password are required. Please Try Again.", 'Close', { duration: 3000 });
+      return;
+    }
+
     this.loginService.login(loginData).subscribe(
       (response) => {
-        // console.log("User Logged in: ", response);
+        if (response.message !== "Invalid email or password") {
+          // console.log("User Logged in: ", response);
 
-        this.setTokenInCookie(response.token);
-        this.navigateBasedOnRole(response.role);
-        this.loginService.LoggedIn();
+          this.setTokenInCookie(response.token);
+          this.navigateBasedOnRole(response.role);
+          this.loginService.LoggedIn();
+        } else {
+          this.snackBar.open("Email or password is incorrect. Please try again.", 'Close', { duration: 3000 });
+        }
       },
       (error) => {
         this.snackBar.open("Email or password is incorrect. Please try again.");
