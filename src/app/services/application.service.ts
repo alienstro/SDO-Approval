@@ -40,7 +40,7 @@ export class ApplicationService {
   /// GET BY URL
 
   getLoanApplication(): Observable<LoanApplication[]> {
-    return this.http.get<LoanApplication[]>(`${API_URL}/loanApplication`);
+    return this.http.get<LoanApplication[]>(`${API_URL}/loanApplicationApproval`);
   }
 
   getAssessmentDetails(): Observable<Assessment[]> {
@@ -48,7 +48,7 @@ export class ApplicationService {
   }
 
   getLoanDetails(): Observable<LoanDetails[]> {
-    return this.http.get<LoanDetails[]>(`${API_URL}/loanDetails`);
+    return this.http.get<LoanDetails[]>(`${API_URL}/getLoanDetailsSignature`);
   }
 
   getCoMakersInformation(): Observable<CoMakersInformation[]> {

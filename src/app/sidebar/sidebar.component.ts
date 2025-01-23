@@ -18,6 +18,8 @@ export class SidebarComponent{
     this.firstName = this.tokenService.firstNameToken(this.tokenService.decodeToken());
     this.lastName = this.tokenService.lastNameToken(this.tokenService.decodeToken());
     this.department_id = this.tokenService.userRoleToken(this.tokenService.decodeToken());
+
+    console.log("department: ",this.department_id);
   }
 
   logout(): void {

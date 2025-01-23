@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
 
     if (role === '7' || role === '8') {
       this.router.navigate(['/forward-view']);
-
     } else {
       this.router.navigate(['/login']);
       console.log("No authority")
