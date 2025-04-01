@@ -21,7 +21,7 @@ export class ForwardViewComponent implements OnInit {
   loanDetails: LoanDetails[] = [];
   approvalDetails: ApprovalDetails[] = [];
   mergedDetails: any[] = [];
-  roleId!: string;
+  roleId!: any;
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
 

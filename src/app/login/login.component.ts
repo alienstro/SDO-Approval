@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
           this.setTokenInCookie(response.token);
           this.navigateBasedOnRole(response.role);
           this.loginService.LoggedIn();
+          this.snackBar.open("Successfully Logged In", 'Close', { duration: 3000 });
         } else {
           this.snackBar.open("Email or password is incorrect. Please try again.", 'Close', { duration: 3000 });
         }
@@ -59,7 +60,9 @@ export class LoginComponent implements OnInit {
 
     console.log(role)
 
-    if (role === '7' || role === '8') {
+    const roleId = parseInt(role);
+
+    if (roleId === 7 || roleId === 8) {
       this.router.navigate(['/forward-view']);
     } else {
       this.router.navigate(['/login']);

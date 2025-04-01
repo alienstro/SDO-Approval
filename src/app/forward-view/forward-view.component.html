@@ -106,11 +106,11 @@
                         <td mat-cell *matCellDef="let element">
                             <!-- Conditional rendering for different roles -->
 
-                            <ng-container *ngIf="roleId === '7'">
+                            <ng-container *ngIf="roleId === 7">
                                 {{ element.status_asds ? 'Approved' : 'Not Approved' }}
                             </ng-container>
                             
-                            <ng-container *ngIf="roleId === '8'">
+                            <ng-container *ngIf="roleId === 8">
                                 {{ element.status_sds ? 'Approved' : 'Not Approved' }}
                             </ng-container>
                         </td>

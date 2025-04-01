@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { API_URL } from '../env';
+import { API_URL } from '../constant';
 interface LoginResponse {
   token: string
 }
@@ -41,11 +41,11 @@ export class RequestService {
   // }
 
   submitApprovalASDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}` + `submitApprovalASDS`, data);
+    return this.http.post(`${API_URL}/loanApplication/submitApprovalASDS`, data);
   }
 
   submitApprovalSDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}` + `submitApprovalSDS`, data);
+    return this.http.post(`${API_URL}/loanApplication/submitApprovalSDS`, data);
   }
 
 

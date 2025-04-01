@@ -47,14 +47,16 @@ export class EndorseComponent {
       application_id: this.application_id
     }
 
-    if (department_id === "7") {
+    const departmentId = parseInt(department_id);
+
+    if (departmentId === 7) {
       console.log("Department: ASDS")
       this.requestService.submitApprovalASDS(data).subscribe(
         (response) => {
           this.snackbar.open('Approval updated successfully.', '', {
             duration: 3000
           });
-          this.applicationService.updateApprovalDetails(approved, this.application_id, department_id)
+          this.applicationService.updateApprovalDetails(approved, this.application_id, departmentId)
           this.dialogRef.close();
           this.router.navigate(['/forward-view']);
         },
@@ -63,14 +65,14 @@ export class EndorseComponent {
           this.snackbar.open('Failed to upload signature.');
         }
       );
-    } else if (department_id === '8') {
+    } else if (departmentId === 8) {
       console.log("Department: SDS")
       this.requestService.submitApprovalSDS(data).subscribe(
         (response) => {
           this.snackbar.open('Approval updated successfully.', '', {
             duration: 3000
           });
-          this.applicationService.updateApprovalDetails(approved, this.application_id, department_id)
+          this.applicationService.updateApprovalDetails(approved, this.application_id, departmentId)
           this.dialogRef.close();
           this.router.navigate(['/forward-view']);
         },
@@ -80,7 +82,7 @@ export class EndorseComponent {
         }
       );
     } else {
-      console.log('Unknown Error!')
+      console.log('No DepartmentId')
     }
   }
 
