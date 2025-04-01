@@ -88,3 +88,10 @@ table {
 .button-action:active {
   background-color: #005493;
 }
+
+.no-data td {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  padding: 1rem;
+}

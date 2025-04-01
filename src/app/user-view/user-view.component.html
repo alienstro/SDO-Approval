@@ -1,457 +1,548 @@
 <div class="user-view">
-    <div class="main">
-        <div class="header">
-            <h1 class="header-text"><span class="back" (click)="goBack()">Approval</span> > 12345</h1>
-        </div>
-
-        <div class="table">
-            <div class="profile">
-                <div class="profile-body">
-                    <div class="profile-content">
-                        <div class="profile-image">
-                            <img src="/chad.svg" alt="profile picture">
-                        </div>
-                        <table class="profile-table">
-                            <tr>
-                                <td>Employee Number</td>
-                                <td>{{ this.loanDetails[0].applicant_id}}</td>
-                            </tr>
-                            <tr>
-                                <td>Fullname</td>
-                                <td>{{ this.loanDetails[0].first_name}} {{ this.loanDetails[0].last_name}}</td>
-                            </tr>
-                            <tr>
-                                <td>Designation</td>
-                                <td>{{this.applicantDetails[0].designation}}</td>
-                            </tr>
-                            <tr>
-                                <td>Contact #</td>
-                                <td>-----</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="details">
-                <mat-tab-group clas="tab">
-
-
-                    <mat-tab label="Loan Application Form">
-
-                        <mat-tab-group>
-                            <mat-tab label="Loan Details">
-
-                                <table class="details-table">
-
-                                    <tr>
-                                        <td>Application Number</td>
-                                        <td>{{this.loanDetails[0].application_id}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Loan Amount</td>
-                                        <td>PHP {{this.loanDetails[0].loan_amount}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Loan Type</td>
-                                        <td>{{this.loanDetails[0].type_of_loan}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Term</td>
-                                        <td>{{this.loanDetails[0].term}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Purpose</td>
-                                        <td>{{this.loanDetails[0].purpose}}</td>
-                                    </tr>
-
-                                </table>
-
-                            </mat-tab>
-                            <mat-tab label="Borrower's Information">
-                                <table class="details-table">
-                                    <tr>
-                                        <td>Employee Number</td>
-                                        <td>{{this.borrowersInformation[0].employee_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Employee Name</td>
-                                        <td>{{this.borrowersInformation[0].first_name}}
-                                            {{this.borrowersInformation[0].last_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mobile No.</td>
-                                        <td>{{this.borrowersInformation[0].mobile_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Address</td>
-                                        <td>{{this.borrowersInformation[0].region}},
-                                            {{this.borrowersInformation[0].province}},
-                                            {{this.borrowersInformation[0].street}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Employment Status</td>
-                                        <td>{{this.borrowersInformation[0].employment_status}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of Birth</td>
-                                        <td>{{this.borrowersInformation[0].date_of_birth}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Age</td>
-                                        <td>{{this.borrowersInformation[0].age}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Office</td>
-                                        <td>{{this.borrowersInformation[0].office}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Office Tel No.</td>
-                                        <td>{{this.borrowersInformation[0].office_tel_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Monthy Salary</td>
-                                        <td>{{this.borrowersInformation[0].monthly_salary}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Years In Service</td>
-                                        <td>{{this.borrowersInformation[0].years_in_service}}</td>
-                                    </tr>
-                                </table>
-                            </mat-tab>
-                            <mat-tab label="CoWorker's Information">
-                                <table class="details-table">
-                                    <tr>
-                                        <td>Employee Number</td>
-                                        <td>{{this.coMakersInformation[0].co_employee_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Employee Name</td>
-                                        <td>{{this.coMakersInformation[0].co_first_name}}
-                                            {{this.coMakersInformation[0].co_last_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mobile No.</td>
-                                        <td>{{this.coMakersInformation[0].co_mobile_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Address</td>
-                                        <td>{{this.coMakersInformation[0].co_region}},
-                                            {{this.coMakersInformation[0].co_province}},
-                                            {{this.coMakersInformation[0].co_street}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Employment Status</td>
-                                        <td>{{this.coMakersInformation[0].co_employment_status}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of Birth</td>
-                                        <td>{{this.coMakersInformation[0].co_date_of_birth}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Age</td>
-                                        <td>{{this.coMakersInformation[0].co_age}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Office</td>
-                                        <td>{{this.coMakersInformation[0].co_office}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Office Tel No.</td>
-                                        <td>{{this.coMakersInformation[0].co_office_tel_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Monthy Salary</td>
-                                        <td>{{this.coMakersInformation[0].co_monthly_salary}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Years In Service</td>
-                                        <td>{{this.coMakersInformation[0].co_years_in_service}}</td>
-                                    </tr>
-                                </table>
-                            </mat-tab>
-
-                            <mat-tab label="Loan Application PDF">
-
-                                pdf
-
-                            </mat-tab>
-                        </mat-tab-group>
-
-                    </mat-tab>
-
-                    <mat-tab label="Assessment Form">
-
-                        <mat-tab-group>
-                            <mat-tab label="Documents Submitted">
-
-                                <table class="details-table">
-
-                                    <tr>
-                                        <td>Loan Application Form (LAF)</td>
-                                        <td>{{this.assessmentDetails[0].loan_application_form === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Authorization To Deduct</td>
-                                        <td>{{this.assessmentDetails[0].authorization_to_deduct === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Latest Copy of pay slip</td>
-                                        <td>{{this.assessmentDetails[0].latest_pay_slip === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Photocopy of Deped ID</td>
-                                        <td>{{this.assessmentDetails[0].photocopy_deped_id === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Document showing proof has at least 2 years experience</td>
-                                        <td>{{this.assessmentDetails[0].proof_co_terminus === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Others</td>
-                                        <td>{{this.assessmentDetails[0].others === '1'? 'Checked' : '-----'}}</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Additional Documents for Additional Loans</td>
-                                        <td>-----</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Letter of Request</td>
-                                        <td>{{this.assessmentDetails[0].letter_of_request === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Hospitalization/Medical Expenses</td>
-                                        <td>{{this.assessmentDetails[0].hospitalization === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Medical Abstract/Certicate/Prescription/Diagnosis</td>
-                                        <td>{{this.assessmentDetails[0].medical_abstract === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Barangay/LGU Certificate</td>
-                                        <td>{{this.assessmentDetails[0].barangay === '1'? 'Checked' : '-----'}}</td>
-                                    </tr>
-
-
-
-
-                                </table>
-
-                            </mat-tab>
-                            <mat-tab label="Completeness and Veracity of Submitted Documents">
-                                <table class="details-table">
-                                    <tr>
-                                        <td>Signed and completely filled out LAF</td>
-                                        <td>{{this.assessmentDetails[0].signed_filled_laf === '1'? 'Checked' : '-----'}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Complete supporting documents for type of loan</td>
-                                        <td>{{this.assessmentDetails[0].complete_supporting_documents === '1'? 'Checked'
-                                            : '-----'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signature on LAF are by authorized signatories</td>
-                                        <td>{{this.assessmentDetails[0].authorized_signature_laf === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                    </tr>
-
-                                </table>
-                            </mat-tab>
-                            <mat-tab label="Eligibility of the Borrower and Co-Maker">
-                                <table class="details-table">
-                                    <tr>
-                                        <td>Borrower will not reach the mandatory age retirement on or before the
-                                            maturity of his/her loan</td>
-                                        <td>{{this.assessmentDetails[0].borrower_reaches_retirement === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                        <td>{{this.assessmentDetails[0].borrowers_age}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Co-Maker will not reach the mandatory age retirement on or before the
-                                            maturity of his/her loan</td>
-                                        <td>{{this.assessmentDetails[0].comakers_reaches_retirement === '1'? 'Checked' :
-                                            '-----'}}</td>
-                                        <td>{{this.assessmentDetails[0].comakers_age}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Borrower has Outstanding PF Loan Balance</td>
-                                        <td>{{this.assessmentDetails[0].borrowers_has_outstanding_balance === '1'?
-                                            'Checked' : '-----'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Current Loan Balance</td>
-                                        <td>{{this.assessmentDetails[0].current_loan_balance}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Past Due Loans</td>
-                                        <td>{{this.assessmentDetails[0].past_due_loan}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No. of Years past-due</td>
-                                        <td>{{this.assessmentDetails[0].number_of_years_past_due}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>No. of Months past-due</td>
-                                        <td>{{this.assessmentDetails[0].number_of_months_past_due}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Borrower's NET Take-Home Pay after deduction of monthly amortization of the
-                                            loan being applied for is equal to or higher than the required threshold for
-                                            the current year</td>
-                                        <td>{{this.assessmentDetails[0].borrowers_take_home_pay === '1'?
-                                            'Checked' : '-----'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>For Renewal of loans: Borrower has paid at least 30% of the principal of the
-                                            existing loan</td>
-                                        <td>{{this.assessmentDetails[0].paid_30_percent === '1'?
-                                            'Checked' : '-----'}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Percentage of Principal Paid</td>
-                                        <td>{{this.assessmentDetails[0].percentage_of_principal_paid}}</td>
-                                    </tr>
-
-
-                                </table>
-                            </mat-tab>
-
-                            <mat-tab label="Computation of Loan">
-                                <table class="details-table">
-                                    <tr>
-                                        <td>Principal Amount of Loan</td>
-                                        <td>{{this.assessmentDetails[0].principal_loan_amount}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Principal</td>
-                                        <td>{{this.assessmentDetails[0].principal}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Interest</td>
-                                        <td>{{this.assessmentDetails[0].interest}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Net Take Home Pay After Deduction</td>
-                                        <td>{{this.assessmentDetails[0].net_take_home_pay_after_deduction}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Monthly Amortization</td>
-                                        <td>{{this.assessmentDetails[0].monthly_amortization}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Period of Loan</td>
-                                        <td>{{this.assessmentDetails[0].period_of_loan}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Date Processed</td>
-                                        <td>{{this.assessmentDetails[0].date_processed}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Processed By</td>
-                                        <td>{{this.assessmentDetails[0].processed_by}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Reviewed By</td>
-                                        <td>{{this.assessmentDetails[0].reviewed_by}}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Remarks</td>
-                                        <td>{{this.assessmentDetails[0].remarks}}</td>
-                                    </tr>
-
-                                </table>
-                            </mat-tab>
-
-                            <mat-tab label="Assessment Form PDF">
-
-                                pdf
-
-                            </mat-tab>
-                        </mat-tab-group>
-
-                    </mat-tab>
-
-                    <mat-tab label="Uploaded Documents">
-                        <mat-tab-group>
-                            <mat-tab label="Authority To Deduct">
-                                <iframe [src]="transform(url.authorityToDeduct)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="Payslip of Applicant">
-                                <iframe [src]="transform(url.payslipApplicant)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="Payslip of CoMaker">
-                                <iframe [src]="transform(url.payslipComaker)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="Id of Applicant">
-                                <iframe [src]="transform(url.idApplicant)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="Id of CoMaker">
-                                <iframe [src]="transform(url.idComaker)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="CSC Appointment">
-                                <iframe [src]="transform(url.csc)" frameborder="0"></iframe>
-                            </mat-tab>
-
-                            <mat-tab label="Emergency Loan">
-                                <iframe [src]="transform(url.emergency)" frameborder="0"></iframe>
-                            </mat-tab>
-                        </mat-tab-group>
-                    </mat-tab>
-
-                </mat-tab-group>
-            </div>
-
-            <div class="buttons">
-                <button class="button-action" (click)="openEndorse()">
-                    <span>Endorse</span>
-                </button>
-            </div>
-
-        </div>
-
+  <div class="main">
+    <div class="header">
+      <h1 class="header-text">
+        <span class="back" (click)="goBack()">Approval</span> >
+        {{ this.application_id }}
+      </h1>
     </div>
+
+    <div class="table">
+      <div class="profile">
+        <div class="profile-body">
+          <div class="profile-content">
+            <div class="profile-image">
+              <img src="/chad.jpg" alt="profile picture" />
+            </div>
+            <table class="profile-table">
+              <tr>
+                <td>Employee Number</td>
+                <td>{{ this.loanDetails[0].applicant_id }}</td>
+              </tr>
+              <tr>
+                <td>Fullname</td>
+                <td>
+                  {{ this.loanDetails[0].first_name }}
+                  {{ this.loanDetails[0].last_name }}
+                </td>
+              </tr>
+              <tr>
+                <td>Designation</td>
+                <td>{{ this.applicantDetails[0].designation }}</td>
+              </tr>
+              <tr>
+                <td>Contact #</td>
+                <td>-----</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="scrollable">
+          <mat-tab-group clas="tab">
+            <mat-tab label="Loan Application Form">
+              <mat-tab-group>
+                <mat-tab label="Loan Application Details">
+                  <!-- Loan Details -->
+                  <h3 style="margin-top: 1rem">Loan Details</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Application Number</td>
+                      <td>{{ loanDetails[0].application_id }}</td>
+                    </tr>
+                    <tr>
+                      <td>Loan Amount</td>
+                      <td>PHP {{ loanDetails[0].loan_amount }}</td>
+                    </tr>
+                    <tr>
+                      <td>Loan Type</td>
+                      <td>{{ loanDetails[0].type_of_loan }}</td>
+                    </tr>
+                    <tr>
+                      <td>Term</td>
+                      <td>{{ loanDetails[0].term }}</td>
+                    </tr>
+                    <tr>
+                      <td>Purpose</td>
+                      <td>{{ loanDetails[0].purpose }}</td>
+                    </tr>
+                  </table>
+
+                  <!-- Borrower's Information -->
+                  <h3>Borrower's Information</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Employee Number</td>
+                      <td>{{ borrowersInformation[0].employee_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Employee Name</td>
+                      <td>
+                        {{ borrowersInformation[0].first_name }}
+                        {{ borrowersInformation[0].last_name }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mobile No.</td>
+                      <td>{{ borrowersInformation[0].mobile_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Address</td>
+                      <td>
+                        {{ borrowersInformation[0].region }},
+                        {{ borrowersInformation[0].province }},
+                        {{ borrowersInformation[0].street }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Employment Status</td>
+                      <td>{{ borrowersInformation[0].employment_status }}</td>
+                    </tr>
+                    <tr>
+                      <td>Date of Birth</td>
+                      <td>{{ borrowersInformation[0].date_of_birth }}</td>
+                    </tr>
+                    <tr>
+                      <td>Age</td>
+                      <td>{{ borrowersInformation[0].age }}</td>
+                    </tr>
+                    <tr>
+                      <td>Office</td>
+                      <td>{{ borrowersInformation[0].office }}</td>
+                    </tr>
+                    <tr>
+                      <td>Office Tel No.</td>
+                      <td>{{ borrowersInformation[0].office_tel_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Monthly Salary</td>
+                      <td>{{ borrowersInformation[0].monthly_salary }}</td>
+                    </tr>
+                    <tr>
+                      <td>Years In Service</td>
+                      <td>{{ borrowersInformation[0].years_in_service }}</td>
+                    </tr>
+                  </table>
+
+                  <!-- CoMaker's Information -->
+                  <h3>CoMaker's Information</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Employee Number</td>
+                      <td>{{ coMakersInformation[0].co_employee_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Employee Name</td>
+                      <td>
+                        {{ coMakersInformation[0].co_first_name }}
+                        {{ coMakersInformation[0].co_last_name }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mobile No.</td>
+                      <td>{{ coMakersInformation[0].co_mobile_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Address</td>
+                      <td>
+                        {{ coMakersInformation[0].co_region }},
+                        {{ coMakersInformation[0].co_province }},
+                        {{ coMakersInformation[0].co_street }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Employment Status</td>
+                      <td>{{ coMakersInformation[0].co_employment_status }}</td>
+                    </tr>
+                    <tr>
+                      <td>Date of Birth</td>
+                      <td>{{ coMakersInformation[0].co_date_of_birth }}</td>
+                    </tr>
+                    <tr>
+                      <td>Age</td>
+                      <td>{{ coMakersInformation[0].co_age }}</td>
+                    </tr>
+                    <tr>
+                      <td>Office</td>
+                      <td>{{ coMakersInformation[0].co_office }}</td>
+                    </tr>
+                    <tr>
+                      <td>Office Tel No.</td>
+                      <td>{{ coMakersInformation[0].co_office_tel_number }}</td>
+                    </tr>
+                    <tr>
+                      <td>Monthly Salary</td>
+                      <td>{{ coMakersInformation[0].co_monthly_salary }}</td>
+                    </tr>
+                    <tr>
+                      <td>Years In Service</td>
+                      <td>{{ coMakersInformation[0].co_years_in_service }}</td>
+                    </tr>
+                  </table>
+                </mat-tab>
+
+                <mat-tab label="Loan Application PDF"> pdf </mat-tab>
+              </mat-tab-group>
+            </mat-tab>
+
+            <mat-tab label="Assessment Form">
+              <mat-tab-group>
+                <mat-tab label="Form Details">
+                  <!-- Documents Submitted -->
+                  <h3 style="margin-top: 1rem">Documents Submitted</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Loan Application Form (LAF)</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].loan_application_form === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Authorization To Deduct</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].authorization_to_deduct === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Latest Copy of pay slip</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].latest_pay_slip === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Photocopy of Deped ID</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].photocopy_deped_id === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Document showing proof has at least 2 years experience
+                      </td>
+                      <td>
+                        {{
+                          assessmentDetails[0].proof_co_terminus === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Others</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].others === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Additional Documents for Additional Loans</td>
+                      <td>-----</td>
+                    </tr>
+                    <tr>
+                      <td>Letter of Request</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].letter_of_request === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Hospitalization/Medical Expenses</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].hospitalization === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Medical Abstract/Certicate/Prescription/Diagnosis</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].medical_abstract === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Barangay/LGU Certificate</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].barangay === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Completeness and Veracity -->
+                  <h3>Completeness and Veracity of Submitted Documents</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Signed and completely filled out LAF</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].signed_filled_laf === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Complete supporting documents for type of loan</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].complete_supporting_documents ===
+                          "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Signature on LAF are by authorized signatories</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].authorized_signature_laf === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Eligibility -->
+                  <h3>Eligibility of the Borrower and Co-Maker</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>
+                        Borrower will not reach mandatory retirement before loan
+                        maturity
+                      </td>
+                      <td>
+                        {{
+                          assessmentDetails[0].borrower_reaches_retirement ===
+                          "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                      <td>{{ assessmentDetails[0].borrowers_age }}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Co-Maker will not reach mandatory retirement before loan
+                        maturity
+                      </td>
+                      <td>
+                        {{
+                          assessmentDetails[0].comakers_reaches_retirement ===
+                          "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                      <td>{{ assessmentDetails[0].comakers_age }}</td>
+                    </tr>
+                    <tr>
+                      <td>Borrower has Outstanding PF Loan Balance</td>
+                      <td>
+                        {{
+                          assessmentDetails[0]
+                            .borrowers_has_outstanding_balance === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Current Loan Balance</td>
+                      <td>{{ assessmentDetails[0].current_loan_balance }}</td>
+                    </tr>
+                    <tr>
+                      <td>Past Due Loans</td>
+                      <td>{{ assessmentDetails[0].past_due_loan }}</td>
+                    </tr>
+                    <tr>
+                      <td>No. of Years past-due</td>
+                      <td>
+                        {{ assessmentDetails[0].number_of_years_past_due }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>No. of Months past-due</td>
+                      <td>
+                        {{ assessmentDetails[0].number_of_months_past_due }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>NET Take-Home Pay meets required threshold</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].borrowers_take_home_pay === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Borrower paid at least 30% of principal (for renewals)
+                      </td>
+                      <td>
+                        {{
+                          assessmentDetails[0].paid_30_percent === "Yes"
+                            ? "Checked"
+                            : "-----"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Percentage of Principal Paid</td>
+                      <td>
+                        {{ assessmentDetails[0].percentage_of_principal_paid }}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Computation -->
+                  <h3>Computation of Loan</h3>
+                  <table class="details-table">
+                    <tr>
+                      <td>Principal Amount of Loan</td>
+                      <td>{{ assessmentDetails[0].principal_loan_amount }}</td>
+                    </tr>
+                    <tr>
+                      <td>Principal</td>
+                      <td>{{ assessmentDetails[0].principal }}</td>
+                    </tr>
+                    <tr>
+                      <td>Interest</td>
+                      <td>{{ assessmentDetails[0].interest }}</td>
+                    </tr>
+                    <tr>
+                      <td>Net Take Home Pay After Deduction</td>
+                      <td>
+                        {{
+                          assessmentDetails[0].net_take_home_pay_after_deduction
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Monthly Amortization</td>
+                      <td>{{ assessmentDetails[0].monthly_amortization }}</td>
+                    </tr>
+                    <tr>
+                      <td>Period of Loan</td>
+                      <td>{{ assessmentDetails[0].period_of_loan }}</td>
+                    </tr>
+                    <tr>
+                      <td>Date Processed</td>
+                      <td>{{ assessmentDetails[0].date_processed }}</td>
+                    </tr>
+                    <tr>
+                      <td>Processed By</td>
+                      <td>{{ assessmentDetails[0].processed_by }}</td>
+                    </tr>
+                    <tr>
+                      <td>Reviewed By</td>
+                      <td>{{ assessmentDetails[0].reviewed_by }}</td>
+                    </tr>
+                    <tr>
+                      <td>Remarks</td>
+                      <td>{{ assessmentDetails[0].remarks }}</td>
+                    </tr>
+                  </table>
+                </mat-tab>
+
+                <mat-tab label="Assessment Form PDF"> pdf </mat-tab>
+              </mat-tab-group>
+            </mat-tab>
+
+            <mat-tab label="Uploaded Documents">
+              <mat-tab-group>
+                <mat-tab label="Authority To Deduct">
+                  <iframe
+                    [src]="transform(url.authorityToDeduct)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+
+                <mat-tab label="Payslip of Applicant">
+                  <iframe
+                    [src]="transform(url.payslipApplicant)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+
+                <mat-tab label="Payslip of CoMaker">
+                  <iframe
+                    [src]="transform(url.payslipComaker)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+
+                <mat-tab label="Id of Applicant">
+                  <iframe
+                    [src]="transform(url.idApplicant)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+
+                <mat-tab label="Id of CoMaker">
+                  <iframe
+                    [src]="transform(url.idComaker)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+
+                <mat-tab label="CSC Appointment">
+                  <iframe [src]="transform(url.csc)" frameborder="0"></iframe>
+                </mat-tab>
+
+                <mat-tab label="Emergency Loan">
+                  <iframe
+                    [src]="transform(url.emergency)"
+                    frameborder="0"
+                  ></iframe>
+                </mat-tab>
+              </mat-tab-group>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="button-action" (click)="openEndorse()">
+          <span>Endorse</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

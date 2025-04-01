@@ -97,9 +97,22 @@
 }
 
 .details-table td:first-child {
-  font-weight: bold;
-  background-color: #f9f9f9;
+  font-weight: 600;
+  background-color: #f2f2f2;
+  color: #333;
+  width: 20rem; /* 👈 Set your fixed width here */
+  white-space: normal; /* Allows wrapping if needed */
 }
+
+.profile-table td:first-child {
+  font-weight: 600;
+  background-color: #f2f2f2;
+  color: #333;
+  width: 10rem; /* 👈 Set your fixed width here */
+
+  white-space: normal; /* Allows wrapping if needed */
+}
+
 
 .details-table td:nth-child(2) {
   background-color: #f9f9f9;
@@ -135,4 +148,20 @@ iframe {
   height: 44rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.scrollable {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+h3 {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #003366;
+  border-left: 4px solid #0165b2;
+  padding-left: 0.5rem;
 }

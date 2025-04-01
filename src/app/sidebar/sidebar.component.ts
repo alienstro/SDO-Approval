@@ -12,7 +12,7 @@ import { TokenService } from '../services/token.service';
 export class SidebarComponent{
   firstName!: string;
   lastName!: string;
-  department_id!: string;
+  department_id!: any;
 
   constructor(private router: Router, private loginService: LoginService, private tokenService: TokenService) {
     this.firstName = this.tokenService.firstNameToken(this.tokenService.decodeToken());
