@@ -1,13 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApprovalDetails, LoanDetails, SignatureDetails } from '../interface/interfaces';
+import {
+  ApprovalDetails,
+  LoanDetails,
+  SignatureDetails,
+} from '../interface/interfaces';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormViewComponent } from '../form-view/form-view.component';
 import { ApplicationService } from '../services/application.service';
 import { AssessViewComponent } from '../assess-view/assess-view.component';
-import { EndorseComponent } from '../endorse/endorse.component';
+import { EndorseComponent } from '../approve-dialog/approve-dialog.component';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
 
@@ -101,21 +105,38 @@ export class ForwardViewComponent implements OnInit {
         ...matchingApproval,
       };
     });
-    console.log(this.mergedDetails)
+    console.log(this.mergedDetails);
     this.dataSource.data = this.mergedDetails;
   }
 
   applyFilter(): void {
     const searchValue = this.searchKey.trim().toLowerCase();
+    const statusValue = this.filterStatus;
+
     this.dataSource.filterPredicate = (data: any, filter: string) => {
-      const status =  this.roleId === '7' ? data.status_asds : this.roleId === '8' ? data.status_sds : 'Pending';
-      return (
-        (data.last_name.toLowerCase().includes(searchValue) ||
-          data.first_name.toLowerCase().includes(searchValue)) &&
-        (!this.filterStatus || (status ? 'Approved' : 'Not Approved') === this.filterStatus)
-      );
+      const [search, statusFilter] = filter.split('|');
+
+      const matchesSearch =
+        data.last_name.toLowerCase().includes(search) ||
+        data.first_name.toLowerCase().includes(search);
+
+      let currentStatus: boolean | null = null;
+      if (this.roleId === 7) {
+        currentStatus = data.status_asds;
+      } else if (this.roleId === 8) {
+        currentStatus = data.status_sds;
+      }
+
+      const mappedStatus = currentStatus ? 'Approved' : 'Not Approved';
+
+      const matchesStatus =
+        !statusFilter ||
+        mappedStatus.toLowerCase() === statusFilter.toLowerCase();
+
+      return matchesSearch && matchesStatus;
     };
-    this.dataSource.filter = searchValue + this.filterStatus;
+
+    this.dataSource.filter = `${searchValue}|${statusValue}`;
   }
 
   ngOnInit(): void {

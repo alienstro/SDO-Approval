@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 import { ApplicationService } from '../services/application.service';
 
 @Component({
-  selector: 'app-endorse',
+  selector: 'app-approve-dialog',
   standalone: false,
 
-  templateUrl: './endorse.component.html',
-  styleUrl: './endorse.component.css'
+  templateUrl: './approve-dialog.component.html',
+  styleUrl: './approve-dialog.component.css'
 })
 export class EndorseComponent {
   application_id!: number;

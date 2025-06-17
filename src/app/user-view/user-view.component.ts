@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApplicationService } from '../services/application.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DOC_URL } from '../constant';
-import { EndorseComponent } from '../endorse/endorse.component';
+import { EndorseComponent } from '../approve-dialog/approve-dialog.component';
 
 @Component({
   selector: 'app-user-view',
