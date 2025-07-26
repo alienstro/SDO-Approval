@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Applicant, Assessment, BorrowersInformation, CoMakersInformation, LoanDetails } from '../interface/interfaces';
+import {
+  Applicant,
+  Assessment,
+  BorrowersInformation,
+  CoMakersInformation,
+  LoanDetails,
+} from '../interface/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ApplicationService } from '../services/application.service';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -12,7 +18,7 @@ import { EndorseComponent } from '../approve-dialog/approve-dialog.component';
   standalone: false,
 
   templateUrl: './user-view.component.html',
-  styleUrl: './user-view.component.css'
+  styleUrl: './user-view.component.css',
 })
 export class UserViewComponent {
   application_id!: number;
@@ -29,16 +35,19 @@ export class UserViewComponent {
     private dialog: MatDialog,
     private applicationService: ApplicationService,
     private domSanitizer: DomSanitizer
-  ) {
-
-  }
+  ) {}
 
   goBack(): void {
     this.router.navigate(['/forward-view']);
   }
 
   openEndorse(): void {
-    this.dialog.open(EndorseComponent, { width: '40rem', maxWidth: '40rem', height: '12.5rem', data: { application_id: this.application_id } })
+    this.dialog.open(EndorseComponent, {
+      width: '50rem',
+      maxWidth: '50rem',
+      height: '21.5rem',
+      data: { application_id: this.application_id },
+    });
   }
 
   transform(url: string) {
@@ -52,8 +61,8 @@ export class UserViewComponent {
     idApplicant: '',
     idComaker: '',
     payslipApplicant: '',
-    payslipComaker: ''
-  }
+    payslipComaker: '',
+  };
 
   ngOnInit(): void {
     this.loanDetails = [history.state.loanDetails];
@@ -70,25 +79,40 @@ export class UserViewComponent {
       idComaker: `${DOC_URL}/${this.applicant_id}/documents/${this.application_id}/idComaker.pdf`,
       payslipApplicant: `${DOC_URL}/${this.applicant_id}/documents/${this.application_id}/payslipApplicant.pdf`,
       payslipComaker: `${DOC_URL}/${this.applicant_id}/documents/${this.application_id}/payslipComaker.pdf`,
-    }
+    };
 
-    this.applicationService.getBorrowersInformationById(this.application_id).subscribe(borrowers => {
-      this.borrowersInformation = Array.isArray(borrowers) ? borrowers : [borrowers];
-    })
+    this.applicationService
+      .getBorrowersInformationById(this.application_id)
+      .subscribe((borrowers) => {
+        this.borrowersInformation = Array.isArray(borrowers)
+          ? borrowers
+          : [borrowers];
+      });
 
+    this.applicationService
+      .getCoMakersInformationById(this.application_id)
+      .subscribe((comakers) => {
+        this.coMakersInformation = Array.isArray(comakers)
+          ? comakers
+          : [comakers];
+      });
 
-    this.applicationService.getCoMakersInformationById(this.application_id).subscribe(comakers => {
-      this.coMakersInformation = Array.isArray(comakers) ? comakers : [comakers];
-    })
+    this.applicationService
+      .getAssessmentDetailsById(this.application_id)
+      .subscribe((assessment) => {
+        this.assessmentDetails = Array.isArray(assessment)
+          ? assessment
+          : [assessment];
+        console.log(assessment);
+      });
 
-    this.applicationService.getAssessmentDetailsById(this.application_id).subscribe(assessment => {
-      this.assessmentDetails = Array.isArray(assessment) ? assessment : [assessment];
-      console.log(assessment)
-    })
-
-    this.applicationService.getLoanApplicantById(this.applicant_id).subscribe(applicant => {
-      this.applicantDetails = Array.isArray(applicant) ? applicant : [applicant];
-    })
+    this.applicationService
+      .getLoanApplicantById(this.applicant_id)
+      .subscribe((applicant) => {
+        this.applicantDetails = Array.isArray(applicant)
+          ? applicant
+          : [applicant];
+      });
 
     console.log(this.assessmentDetails[0]);
   }

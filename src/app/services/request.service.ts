@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_URL } from '../constant';
 interface LoginResponse {
-  token: string
+  token: string;
 }
 
 interface LoginRequest {
@@ -12,15 +12,13 @@ interface LoginRequest {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class RequestService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(data: LoginRequest) {
-    return this.http.post<LoginResponse>(API_URL+'login', data);
+    return this.http.post<LoginResponse>(API_URL + 'login', data);
   }
 
   // updateApprovalOSDS(data: any): Observable<any> {
@@ -40,14 +38,24 @@ export class RequestService {
   //   return this.http.post(`${API_URL}` + `submitSignatureLegal`, data);
   // }
 
-  submitApprovalASDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/loanApplication/submitApprovalASDS`, data);
+  // submitApprovalASDS(data: any): Observable<any> {
+  //   return this.http.post(
+  //     `${API_URL}/loanApplication/submitApprovalASDS`,
+  //     data
+  //   );
+  // }
+
+  // submitApprovalSDS(data: any): Observable<any> {
+  //   return this.http.post(`${API_URL}/loanApplication/submitApprovalSDS`, data);
+  // }
+
+  submitSignatureASDS(data: any): Observable<any> {
+    return this.http.post(`${API_URL}/loanApplication/submitSignatureASDS`, data);
   }
 
-  submitApprovalSDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/loanApplication/submitApprovalSDS`, data);
+  submitSignatureSDS(data: any): Observable<any> {
+    return this.http.post(`${API_URL}/loanApplication/submitSignatureSDS`, data);
   }
-
 
   // addLoanApplication(data: any): Observable<any> {
   //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -57,5 +65,4 @@ export class RequestService {
   // get<T>(endpoint: string) {
   //   return this.http.get<Response<T>>(`${API_URL}/${endpoint}`)
   // }
-
 }

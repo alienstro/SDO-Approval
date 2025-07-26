@@ -31,13 +31,13 @@ export class ApplicationService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {
     this.departmentId = this.tokenService.userRoleToken(this.tokenService.decodeToken());
-    forkJoin({
-      loanDetails: this.getLoanDetails(),
-      approvalDetails: this.getApprovalDetails()
-    }).subscribe(({ loanDetails, approvalDetails }) => {
-      this._loanDetails.next(loanDetails);
-      this._approvalDetails.next(approvalDetails);
-    });
+    // forkJoin({
+    //   loanDetails: this.getLoanDetails(),
+    //   approvalDetails: this.getApprovalDetails()
+    // }).subscribe(({ loanDetails, approvalDetails }) => {
+    //   this._loanDetails.next(loanDetails);
+    //   this._approvalDetails.next(approvalDetails);
+    // });
   }
 
   /// GET BY URL
@@ -53,7 +53,9 @@ export class ApplicationService {
   }
 
   getLoanDetails(): Observable<LoanDetails[]> {
-    return this.http.get<LoanDetails[]>(`${this.API_URL}/getLoanDetailsSignature/${this.departmentId}`);
+    console.log("signature department id: ",this.departmentId);
+
+    return this.http.get<LoanDetails[]>(`${this.API_URL}/getLoanDetailsApproval/${this.departmentId}`);
   }
 
   getCoMakersInformation(): Observable<CoMakersInformation[]> {

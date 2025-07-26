@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
     const roleId = parseInt(role);
 
-    if (roleId === 7 || roleId === 8) {
+    if (roleId === 6 || roleId === 7) {
       this.router.navigate(['/forward-view']);
     } else {
       this.router.navigate(['/login']);
