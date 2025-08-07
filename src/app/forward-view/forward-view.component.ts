@@ -10,7 +10,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormViewComponent } from '../form-view/form-view.component';
 import { ApplicationService } from '../services/application.service';
-import { AssessViewComponent } from '../assess-view/assess-view.component';
+
 import { EndorseComponent } from '../approve-dialog/approve-dialog.component';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
@@ -72,15 +72,6 @@ export class ForwardViewComponent implements OnInit {
     });
   }
 
-  openAssessmentForm(loan: LoanDetails): void {
-    this.dialog.open(AssessViewComponent, {
-      width: '90rem',
-      maxWidth: '90rem',
-      height: '55rem',
-      data: { loan: loan },
-    });
-  }
-
   openEndorse(loan: LoanDetails): void {
     this.dialog.open(EndorseComponent, {
       width: '50rem',
@@ -120,14 +111,15 @@ export class ForwardViewComponent implements OnInit {
         data.last_name.toLowerCase().includes(search) ||
         data.first_name.toLowerCase().includes(search);
 
-      let currentStatus: boolean | null = null;
-      if (this.roleId === 7) {
-        currentStatus = data.status_asds;
-      } else if (this.roleId === 8) {
-        currentStatus = data.status_sds;
+      // Match your display logic for status
+      let mappedStatus = 'Pending';
+      if (data.status === 'Rejected') {
+        mappedStatus = 'Rejected';
+      } else if (this.roleId === 5) {
+        mappedStatus = data.signature_asds ? 'Approved' : 'Not Approved';
+      } else {
+        mappedStatus = 'Pending';
       }
-
-      const mappedStatus = currentStatus ? 'Approved' : 'Not Approved';
 
       const matchesStatus =
         !statusFilter ||
@@ -144,14 +136,14 @@ export class ForwardViewComponent implements OnInit {
       next: (data) => {
         this.loanDetails = data;
         this.updateTableData();
-      }
+      },
     });
 
     this.applicationService.getApprovalDetails().subscribe({
       next: (data) => {
         this.approvalDetails = data;
         this.updateTableData();
-      }
-    })
+      },
+    });
   }
 }

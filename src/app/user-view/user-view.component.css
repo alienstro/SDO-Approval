@@ -93,30 +93,29 @@
   border: 1px solid #ccc;
   padding: 0.5rem;
   font-size: 0.8rem;
-  white-space: nowrap;
 }
 
-.details-table td:first-child {
+.details-table tr td:first-child,
+.details-table tr th:first-child {
   font-weight: 600;
   background-color: #f2f2f2;
   color: #333;
-  width: 20rem; /* 👈 Set your fixed width here */
-  white-space: normal; /* Allows wrapping if needed */
+  width: 24rem !important;
+  min-width: 24rem !important;
+  max-width: 24rem !important;
+  white-space: normal;
 }
 
-.profile-table td:first-child {
-  font-weight: 600;
-  background-color: #f2f2f2;
-  color: #333;
-  width: 10rem; /* 👈 Set your fixed width here */
-
-  white-space: normal; /* Allows wrapping if needed */
+.details-table th {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 0.8rem;
 }
-
 
 .details-table td:nth-child(2) {
   background-color: #f9f9f9;
-  width: 100rem;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .buttons {
@@ -164,4 +163,27 @@ h3 {
   color: #003366;
   border-left: 4px solid #0165b2;
   padding-left: 0.5rem;
+}
+
+.button-generate {
+  margin: 1rem 0 0 1rem;
+}
+
+.buttons button {
+  margin: 1rem 0 1rem 1rem;
+}
+
+.no-uploaded-document {
+  height: 44rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 2rem;
+  text-align: center;
+  color: #5f6368;
+  border: 1px solid #e0e0e0;
 }
