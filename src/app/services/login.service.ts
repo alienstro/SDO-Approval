@@ -8,7 +8,7 @@ import { API_URL } from '../constant';
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = `${API_URL}/login`;
+  private apiUrl = `${API_URL}/staffLogin`;
 
   private _loadValues = new BehaviorSubject<number | null>(null);
   loadValues$ = this._loadValues.asObservable();

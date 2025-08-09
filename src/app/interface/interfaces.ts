@@ -265,7 +265,6 @@ export interface Applicant {
   ext_name: string;
   email: string;
   institution_name: string;
-  position_id: number;
   designation: string;
 }
 
