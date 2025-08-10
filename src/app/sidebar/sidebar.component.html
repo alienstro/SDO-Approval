@@ -1,42 +1,49 @@
 <div class="sidebar">
-    <div class="main-content">
-        <div class="top">
-
-
-            <div class="profile">
-                <div class="img-contianer">
-                    <img src="/profile.svg" alt="user pfp">
-                </div>
-
-                <div class="info-container">
-                    <p class="profile-name">{{ firstName }} {{ lastName }}</p>
-                    <p class="profile-department" *ngIf="department_id === 6">ASDS</p>
-                    <p class="profile-department" *ngIf="department_id === 7">SDS</p>
-
-                </div>
-
-            </div>
-
-            <div class="routes">
-                <button>
-                    <img src="/forms.svg" alt="applicant forms img">
-
-                    <div class="button-title" (click)="applications()">
-                        <span>Applications</span>
-
-                    </div>
-
-                </button>
-            </div>
+  <div class="main-content">
+    <div class="top">
+      <div class="profile">
+        <div class="img-contianer">
+          <img src="/profile.svg" alt="user pfp" />
         </div>
 
-        <div class="bottom">
-            <div class="logout">
-                <button (click)="logout()" class="button-action">
-                    Logout
-                </button>
-            </div>
+        <div class="info-container">
+          <p class="profile-name">{{ firstName }} {{ lastName }}</p>
+          <p class="profile-department" *ngIf="department_id === 6">ASDS</p>
+          <p class="profile-department" *ngIf="department_id === 7">SDS</p>
         </div>
+      </div>
+
+      <div class="routes">
+        <button>
+          <img src="/forms.svg" alt="applicant forms img" />
+
+          <div class="button-title" (click)="applications()">
+            <span>Applications</span>
+          </div>
+        </button>
+      </div>
     </div>
 
+    <div class="bottom">
+      <div class="logout">
+        <div class="bottom-buttons">
+          <button
+            class="button-logout"
+            class="button-action"
+            (click)="changePassword()"
+          >
+            Change<br />
+            Password
+          </button>
+          <button
+            class="button-logout"
+            (click)="logout()"
+            class="button-action"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

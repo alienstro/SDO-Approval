@@ -107,6 +107,14 @@ button:hover {
 }
 
 .button-action:hover {
-    cursor: pointer;
-    background-color: #004e89;
+  cursor: pointer;
+  background-color: #004e89;
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
 }

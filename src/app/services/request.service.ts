@@ -50,13 +50,26 @@ export class RequestService {
   // }
 
   submitSignatureASDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/loanApplication/submitSignatureASDS`, data);
+    return this.http.post(
+      `${API_URL}/loanApplication/submitSignatureASDS`,
+      data
+    );
   }
 
   submitSignatureSDS(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/loanApplication/submitSignatureSDS`, data);
+    return this.http.post(
+      `${API_URL}/loanApplication/submitSignatureSDS`,
+      data
+    );
   }
 
+  editPasswordStaff(data: any): Observable<any> {
+    console.log('request service staff: ', data);
+    return this.http.put(
+      `${API_URL}` + `/staffUser/change-password/${data.staff_id}`,
+      data
+    );
+  }
   // addLoanApplication(data: any): Observable<any> {
   //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   //   return this.http.post(`${API_URL}/addLoanData`, data, { headers });
