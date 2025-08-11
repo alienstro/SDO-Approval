@@ -96,7 +96,7 @@ export class UserViewComponent {
     let words = this.numberToWords(integerPart).replace(/-/g, ' ');
 
     if (decimalPart > 0) {
-      words += ' POINT ' + this.numberToWords(decimalPart).replace(/-/g, ' ');
+      words += ' AND ' + this.numberToWords(decimalPart).replace(/-/g, ' ') + ' CENTAVOS';
     }
 
     return words.toUpperCase();
@@ -1074,7 +1074,7 @@ export class UserViewComponent {
       { name: 'co_makers_date', x: 665, y: 728, fontSize: 8 },
 
       { name: 'permanent', x: 100, y: 838, fontSize: 8, checkbox: true },
-      { name: 'co-terminus', x: 175, y: 838, fontSize: 8, checkbox: true },
+      { name: 'co_terminus', x: 175, y: 838, fontSize: 8, checkbox: true },
       { name: 'net_pay', x: 150, y: 862.5, fontSize: 8 },
       { name: 'year_of', x: 65, y: 874, fontSize: 8 },
       {
