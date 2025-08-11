@@ -986,10 +986,16 @@
         </div>
 
         <div class="buttons">
-          <button class="button-action" (click)="openEndorse()">
+          <button class="button-action" *ngIf="signatureDetails[0].signature_asds">
+            <span>Approved</span>
+          </button>
+
+          <button class="button-action" (click)="openEndorse()" *ngIf="!signatureDetails[0].signature_asds">
             <span>Approve</span>
           </button>
         </div>
+
+        
       </div>
     </div>
   </div>
