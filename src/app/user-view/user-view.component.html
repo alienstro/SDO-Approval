@@ -54,7 +54,7 @@
                     </tr>
                     <tr>
                       <td>Loan Amount</td>
-                      <td>PHP {{ loanDetails[0].loan_amount }}</td>
+                      <td>PHP {{ this.numberWithCommasAndDecimal(loanDetails[0].loan_amount)}}</td>
                     </tr>
                     <tr>
                       <td>Loan Type</td>
@@ -138,7 +138,7 @@
                     </tr>
                     <tr>
                       <td>Monthly Salary</td>
-                      <td>{{ borrowersInformation[0].monthly_salary }}</td>
+                      <td>{{ this.numberWithCommasAndDecimal(borrowersInformation[0].monthly_salary) }}</td>
                     </tr>
                     <tr>
                       <td>Years In Service</td>
@@ -262,7 +262,7 @@
                       <td>
                         {{
                           coMakersInformation[0].co_monthly_salary
-                            ? coMakersInformation[0].co_monthly_salary
+                            ? this.numberWithCommasAndDecimal(coMakersInformation[0].co_monthly_salary)
                             : noData
                         }}
                       </td>
@@ -790,42 +790,36 @@
                     <tr>
                       <td>Principal Amount of Loan</td>
                       <td>
-                        {{ assessmentDetails[0].principal_loan_amount || "" }}
+                        {{ this.numberWithCommasAndDecimal(assessmentDetails[0].principal_loan_amount) || "" }}
                       </td>
                     </tr>
                     <tr>
                       <td>Principal</td>
-                      <td>{{ assessmentDetails[0].principal || "" }}</td>
+                      <td>{{ this.numberWithCommasAndDecimal(assessmentDetails[0].principal) || "" }}</td>
                     </tr>
                     <tr>
                       <td>Interest</td>
-                      <td>{{ assessmentDetails[0].interest || "" }}</td>
+                      <td>{{ this.numberWithCommasAndDecimal(assessmentDetails[0].interest) || "" }}</td>
                     </tr>
                     <tr>
                       <td>Outstanding Balance</td>
                       <td>
-                        {{ assessmentDetails[0].outstanding_balance || "" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Outstanding Balance</td>
-                      <td>
-                        {{ assessmentDetails[0].outstanding_balance || "" }}
+                        {{ this.numberWithCommasAndDecimal(assessmentDetails[0].outstanding_balance) || "" }}
                       </td>
                     </tr>
                     <tr>
                       <td>Net Take Home Pay After Deduction</td>
                       <td>
                         {{
-                          assessmentDetails[0]
-                            .net_take_home_pay_after_deduction || ""
+                          this.numberWithCommasAndDecimal(assessmentDetails[0]
+                            .net_take_home_pay_after_deduction) || ""
                         }}
                       </td>
                     </tr>
                     <tr>
                       <td>Monthly Amortization</td>
                       <td>
-                        {{ assessmentDetails[0].monthly_amortization || "" }}
+                        {{ this.numberWithCommasAndDecimal(assessmentDetails[0].monthly_amortization) || "" }}
                       </td>
                     </tr>
                     <tr>
