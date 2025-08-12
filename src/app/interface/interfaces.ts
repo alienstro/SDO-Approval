@@ -75,6 +75,7 @@ export interface LoanDetails {
     first_name: string;
     middle_name: string;
     date_submitted: Date;
+    remarks_message: string;
     status: string;
 }
 
