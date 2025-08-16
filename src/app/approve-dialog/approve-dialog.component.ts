@@ -117,7 +117,7 @@ export class EndorseComponent {
      const signatureImage = this.signaturePad.toDataURL('image/png');
 
     const data = {
-        signature: signatureImage,
+      signature: signatureImage,
       department_id: department_id,
       staff_id: staff_id,
       application_id: this.application_id,
