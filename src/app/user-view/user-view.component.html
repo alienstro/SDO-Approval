@@ -72,9 +72,9 @@
                       <td>Other Purpose</td>
                       <td>
                         {{
-                          loanDetails[0].other_purpose
-                            ? loanDetails[0].other_purpose
-                            : "No Other Purpose"
+                        loanDetails[0].other_purpose
+                        ? loanDetails[0].other_purpose
+                        : "No Other Purpose"
                         }}
                       </td>
                     </tr>
@@ -82,13 +82,10 @@
 
                   <!-- Borrower's Information -->
                   <h3>Borrower's Information</h3>
-                  <table
-                    class="details-table"
-                    *ngIf="
+                  <table class="details-table" *ngIf="
                       borrowersInformation && borrowersInformation.length > 0;
                       else noBorrowerInfo
-                    "
-                  >
+                    ">
                     <tr>
                       <td>Employee Number</td>
                       <td>{{ borrowersInformation[0].employee_number }}</td>
@@ -156,9 +153,9 @@
                       <td>Employee Number</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_employee_number
-                            ? coMakersInformation[0].co_employee_number
-                            : noData
+                        coMakersInformation[0].co_employee_number
+                        ? coMakersInformation[0].co_employee_number
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -166,9 +163,9 @@
                       <td>Employee Name</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_first_name
-                            ? coMakersInformation[0].co_first_name
-                            : noData
+                        coMakersInformation[0].co_first_name
+                        ? coMakersInformation[0].co_first_name
+                        : noData
                         }}
                         {{ coMakersInformation[0].co_last_name }}
                       </td>
@@ -177,9 +174,9 @@
                       <td>Employee Position</td>
                       <td>
                         {{
-                          coMakersInformation[0].position
-                            ? coMakersInformation[0].position
-                            : noData
+                        coMakersInformation[0].position
+                        ? coMakersInformation[0].position
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -187,9 +184,9 @@
                       <td>Mobile No.</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_mobile_number
-                            ? coMakersInformation[0].co_mobile_number
-                            : noData
+                        coMakersInformation[0].co_mobile_number
+                        ? coMakersInformation[0].co_mobile_number
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -197,13 +194,13 @@
                       <td>Address</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_street
-                            ? coMakersInformation[0].co_street +
-                              ", " +
-                              coMakersInformation[0].co_province +
-                              ", " +
-                              coMakersInformation[0].co_region
-                            : noData
+                        coMakersInformation[0].co_street
+                        ? coMakersInformation[0].co_street +
+                        ", " +
+                        coMakersInformation[0].co_province +
+                        ", " +
+                        coMakersInformation[0].co_region
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -211,9 +208,9 @@
                       <td>Employment Status</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_employment_status
-                            ? coMakersInformation[0].co_employment_status
-                            : noData
+                        coMakersInformation[0].co_employment_status
+                        ? coMakersInformation[0].co_employment_status
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -221,9 +218,9 @@
                       <td>Date of Birth</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_date_of_birth
-                            ? coMakersInformation[0].co_date_of_birth
-                            : noData
+                        coMakersInformation[0].co_date_of_birth
+                        ? coMakersInformation[0].co_date_of_birth
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -231,9 +228,9 @@
                       <td>Age</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_age
-                            ? coMakersInformation[0].co_age
-                            : noData
+                        coMakersInformation[0].co_age
+                        ? coMakersInformation[0].co_age
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -241,9 +238,9 @@
                       <td>Office</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_office
-                            ? coMakersInformation[0].co_office
-                            : noData
+                        coMakersInformation[0].co_office
+                        ? coMakersInformation[0].co_office
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -251,9 +248,9 @@
                       <td>Office Tel No.</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_office_tel_number
-                            ? coMakersInformation[0].co_office_tel_number
-                            : noData
+                        coMakersInformation[0].co_office_tel_number
+                        ? coMakersInformation[0].co_office_tel_number
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -261,9 +258,9 @@
                       <td>Monthly Salary</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_monthly_salary
-                            ? this.numberWithCommasAndDecimal(coMakersInformation[0].co_monthly_salary)
-                            : noData
+                        coMakersInformation[0].co_monthly_salary
+                        ? this.numberWithCommasAndDecimal(coMakersInformation[0].co_monthly_salary)
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -271,9 +268,9 @@
                       <td>Years In Service</td>
                       <td>
                         {{
-                          coMakersInformation[0].co_years_in_service
-                            ? coMakersInformation[0].co_years_in_service
-                            : noData
+                        coMakersInformation[0].co_years_in_service
+                        ? coMakersInformation[0].co_years_in_service
+                        : noData
                         }}
                       </td>
                     </tr>
@@ -282,25 +279,14 @@
 
                 <mat-tab label="Loan Application PDF">
                   <div class="pdf-preview-container">
-                    <button
-                      mat-raised-button
-                      color="primary"
-                      (click)="generateAndPreviewPdf()"
-                      class="button-generate"
-                    >
+                    <button mat-raised-button color="primary" (click)="generateAndPreviewPdf()" class="button-generate">
                       Generate & Preview PDF
                     </button>
-                    <iframe
-                      #pdfPreview
-                      title="PDF Preview"
-                      width="595"
-                      height="842"
-                      style="
+                    <iframe #pdfPreview title="PDF Preview" width="595" height="842" style="
                         border: 1px solid #ccc;
                         display: block;
                         margin-top: 1rem;
-                      "
-                    ></iframe>
+                      "></iframe>
                   </div>
                 </mat-tab>
               </mat-tab-group>
@@ -315,23 +301,19 @@
                     <tr>
                       <td>Loan Application Form (LAF)</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].loan_application_form ===
                               'Yes';
                             else notYesLAF
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesLAF>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].loan_application_form ===
                                 'No';
                               else emptyLAF
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyLAF></ng-template>
@@ -341,23 +323,19 @@
                     <tr>
                       <td>Authorization To Deduct</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].authorization_to_deduct ===
                               'Yes';
                             else notYesAuth
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesAuth>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].authorization_to_deduct ===
                                 'No';
                               else emptyAuth
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyAuth></ng-template>
@@ -367,21 +345,17 @@
                     <tr>
                       <td>Latest Copy of pay slip</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].latest_pay_slip === 'Yes';
                             else notYesPay
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesPay>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].latest_pay_slip === 'No';
                               else emptyPay
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyPay></ng-template>
@@ -391,21 +365,17 @@
                     <tr>
                       <td>Photocopy of Deped ID</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].photocopy_deped_id === 'Yes';
                             else notYesDeped
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesDeped>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].photocopy_deped_id === 'No';
                               else emptyDeped
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyDeped></ng-template>
@@ -417,21 +387,17 @@
                         Document showing proof has at least 2 years experience
                       </td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].proof_co_terminus === 'Yes';
                             else notYesProof
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesProof>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].proof_co_terminus === 'No';
                               else emptyProof
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyProof></ng-template>
@@ -441,29 +407,22 @@
                     <tr>
                       <td>Others (Specify)</td>
                       <td>
-                        <ng-container
-                          *ngIf="assessmentDetails[0].others; else dashOthers"
-                        >
+                        <ng-container *ngIf="assessmentDetails[0].others; else dashOthers">
                           {{ assessmentDetails[0].others }}
                         </ng-container>
-                        <ng-template #dashOthers
-                          ><ng-container
-                            *ngIf="
+                        <ng-template #dashOthers><ng-container *ngIf="
                               assessmentDetails[0].loan_application_form;
                               else emptyOthers
-                            "
-                          >
+                            ">
                             No other document
-                          </ng-container></ng-template
-                        >
+                          </ng-container></ng-template>
                         <ng-template #emptyOthers> </ng-template>
                       </td>
                     </tr>
                     <tr>
                       <td>Additional Documents for Additional Loans</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0]?.additional_documents ===
                               'Yes' ||
                               assessmentDetails[0]?.letter_of_request ===
@@ -473,14 +432,12 @@
                                 'Yes' ||
                               assessmentDetails[0]?.barangay === 'Yes';
                             else checkIfAllNo
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
 
                         <ng-template #checkIfAllNo>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0]?.additional_documents ===
                                 'No' &&
                                 assessmentDetails[0]?.letter_of_request ===
@@ -491,8 +448,7 @@
                                   'No' &&
                                 assessmentDetails[0]?.barangay === 'No';
                               else emptyCell
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                         </ng-template>
@@ -507,21 +463,17 @@
                     <tr>
                       <td>Letter of Request</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].letter_of_request === 'Yes';
                             else notYesLetter
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesLetter>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].letter_of_request === 'No';
                               else emptyLetter
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyLetter></ng-template>
@@ -531,21 +483,17 @@
                     <tr>
                       <td>Hospitalization/Medical Expenses</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].hospitalization === 'Yes';
                             else notYesHosp
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesHosp>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].hospitalization === 'No';
                               else emptyHosp
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyHosp></ng-template>
@@ -555,21 +503,17 @@
                     <tr>
                       <td>Medical Abstract/Certicate/Prescription/Diagnosis</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].medical_abstract === 'Yes';
                             else notYesMed
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesMed>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].medical_abstract === 'No';
                               else emptyMed
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyMed></ng-template>
@@ -579,21 +523,17 @@
                     <tr>
                       <td>Barangay/LGU Certificate</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].barangay === 'Yes';
                             else notYesBrgy
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesBrgy>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].barangay === 'No';
                               else emptyBrgy
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyBrgy></ng-template>
@@ -608,21 +548,17 @@
                     <tr>
                       <td>Signed and completely filled out LAF</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].signed_filled_laf === 'Yes';
                             else notYesSignedLAF
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesSignedLAF>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].signed_filled_laf === 'No';
                               else emptySignedLAF
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptySignedLAF></ng-template>
@@ -632,23 +568,19 @@
                     <tr>
                       <td>Complete supporting documents for type of loan</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0]
                               .complete_supporting_documents === 'Yes';
                             else notYesSupp
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesSupp>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0]
                                 .complete_supporting_documents === 'No';
                               else emptySupp
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptySupp></ng-template>
@@ -658,23 +590,19 @@
                     <tr>
                       <td>Signature on LAF are by authorized signatories</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].authorized_signature_laf ===
                               'Yes';
                             else notYesSign
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesSign>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0].authorized_signature_laf ===
                                 'No';
                               else emptySign
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptySign></ng-template>
@@ -697,23 +625,19 @@
                         maturity
                       </td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].borrower_reaches_retirement ===
                               'Yes';
                             else notYesRetBorrow
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesRetBorrow>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0]
                                 .borrower_reaches_retirement === 'No';
                               else emptyRetBorrow
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyRetBorrow></ng-template>
@@ -729,23 +653,19 @@
                         maturity
                       </td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0].comakers_reaches_retirement ===
                               'Yes';
                             else notYesRetCo
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesRetCo>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0]
                                 .comakers_reaches_retirement === 'No';
                               else emptyRetCo
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyRetCo></ng-template>
@@ -758,23 +678,19 @@
                     <tr>
                       <td>Borrower has Outstanding PF Loan Balance</td>
                       <td>
-                        <ng-container
-                          *ngIf="
+                        <ng-container *ngIf="
                             assessmentDetails[0]
                               .borrowers_has_outstanding_balance === 'Yes';
                             else notYesPF
-                          "
-                        >
+                          ">
                           <mat-icon>check_box</mat-icon>
                         </ng-container>
                         <ng-template #notYesPF>
-                          <ng-container
-                            *ngIf="
+                          <ng-container *ngIf="
                               assessmentDetails[0]
                                 .borrowers_has_outstanding_balance === 'No';
                               else emptyPF
-                            "
-                          >
+                            ">
                             <mat-icon>close</mat-icon>
                           </ng-container>
                           <ng-template #emptyPF></ng-template>
@@ -811,8 +727,8 @@
                       <td>Net Take Home Pay After Deduction</td>
                       <td>
                         {{
-                          this.numberWithCommasAndDecimal(assessmentDetails[0]
-                            .net_take_home_pay_after_deduction) || ""
+                        this.numberWithCommasAndDecimal(assessmentDetails[0]
+                        .net_take_home_pay_after_deduction) || ""
                         }}
                       </td>
                     </tr>
@@ -837,25 +753,15 @@
 
                 <mat-tab label="Assessment Form PDF">
                   <div class="pdf-preview-container">
-                    <button
-                      mat-raised-button
-                      color="primary"
-                      (click)="generateAndPreviewPdfAssessment()"
-                      class="button-generate"
-                    >
+                    <button mat-raised-button color="primary" (click)="generateAndPreviewPdfAssessment()"
+                      class="button-generate">
                       Generate & Preview PDF Assessment
                     </button>
-                    <iframe
-                      #pdfPreviewAssessment
-                      title="PDF Preview Assessment"
-                      width="595"
-                      height="842"
-                      style="
+                    <iframe #pdfPreviewAssessment title="PDF Preview Assessment" width="595" height="842" style="
                         border: 1px solid #ccc;
                         display: block;
                         margin-top: 1rem;
-                      "
-                    ></iframe>
+                      "></iframe>
                   </div>
                 </mat-tab>
               </mat-tab-group>
@@ -865,25 +771,15 @@
               <mat-tab-group>
                 <mat-tab label="Salary Deduction Form PDF">
                   <div class="pdf-preview-container">
-                    <button
-                      mat-raised-button
-                      color="primary"
-                      (click)="generateAndPreviewPdfAuthorization()"
-                      class="button-generate"
-                    >
+                    <button mat-raised-button color="primary" (click)="generateAndPreviewPdfAuthorization()"
+                      class="button-generate">
                       Generate & Preview PDF Authorization to Deduct
                     </button>
-                    <iframe
-                      #pdfPreviewAuthorization
-                      title="PDF Preview Authorization"
-                      width="595"
-                      height="842"
-                      style="
+                    <iframe #pdfPreviewAuthorization title="PDF Preview Authorization" width="595" height="842" style="
                         border: 1px solid #ccc;
                         display: block;
                         margin-top: 1rem;
-                      "
-                    ></iframe>
+                      "></iframe>
                   </div>
                 </mat-tab>
               </mat-tab-group>
@@ -892,85 +788,49 @@
             <mat-tab label="Uploaded Documents">
               <mat-tab-group>
                 <mat-tab label="Payslip of Applicant">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].payslipApplicant_path"
-                    [src]="transform(url.payslipApplicant)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].payslipApplicant_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].payslipApplicant_path" [src]="transform(url.payslipApplicant)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].payslipApplicant_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
 
                 <mat-tab label="Payslip of CoMaker">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].payslipComaker_path"
-                    [src]="transform(url.payslipComaker)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].payslipComaker_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].payslipComaker_path" [src]="transform(url.payslipComaker)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].payslipComaker_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
 
                 <mat-tab label="Id of Applicant">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].idApplicant_path"
-                    [src]="transform(url.idApplicant)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].idApplicant_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].idApplicant_path" [src]="transform(url.idApplicant)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].idApplicant_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
 
                 <mat-tab label="Id of CoMaker">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].idComaker_path"
-                    [src]="transform(url.idComaker)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].idComaker_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].idComaker_path" [src]="transform(url.idComaker)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].idComaker_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
 
                 <mat-tab label="CSC Appointment">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].cscAppointment_path"
-                    [src]="transform(url.csc)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].cscAppointment_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].cscAppointment_path" [src]="transform(url.csc)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].cscAppointment_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
 
                 <mat-tab label="Emergency Loan">
-                  <iframe
-                    *ngIf="this.documentsDetails[0].emergency_path"
-                    [src]="transform(url.emergency)"
-                    frameborder="0"
-                  ></iframe>
-                  <div
-                    class="no-uploaded-document"
-                    *ngIf="!this.documentsDetails[0].emergency_path"
-                  >
+                  <iframe *ngIf="this.documentsDetails[0].emergency_path" [src]="transform(url.emergency)"
+                    frameborder="0"></iframe>
+                  <div class="no-uploaded-document" *ngIf="!this.documentsDetails[0].emergency_path">
                     No Uploaded Document
                   </div>
                 </mat-tab>
@@ -987,9 +847,17 @@
           <button class="button-action" (click)="openEndorse()" *ngIf="!signatureDetails[0].signature_asds">
             <span>Approve</span>
           </button>
+
+          <button class="button-action" style="margin-left: 1rem" (click)="openReject()" *ngIf="
+            !signatureDetails[0].signature_asds &&
+            loanDetails[0].status !== 'Rejected'
+          ">
+            <span>Reject</span>
+          </button>
         </div>
 
-        
+
+
       </div>
     </div>
   </div>

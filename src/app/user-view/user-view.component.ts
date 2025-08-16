@@ -17,6 +17,7 @@ import { EndorseComponent } from '../approve-dialog/approve-dialog.component';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from '../services/token.service';
+import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
 
 @Component({
   selector: 'app-user-view',
@@ -1342,6 +1343,15 @@ export class UserViewComponent {
       width: '50rem',
       maxWidth: '50rem',
       height: '21.5rem',
+      data: { application_id: this.application_id },
+    });
+  }
+  
+  openReject(): void {
+    this.dialog.open(RejectDialogComponent, {
+      width: '50rem',
+      maxWidth: '50rem',
+      height: '16rem',
       data: { application_id: this.application_id },
     });
   }

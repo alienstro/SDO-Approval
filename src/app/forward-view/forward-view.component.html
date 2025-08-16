@@ -6,18 +6,9 @@
 
     <div class="search">
       <div class="search">
-        <img
-          class="search-img"
-          src="/magnifying_glass.svg"
-          alt="magnifying_glass"
-        />
-        <input
-          type="text"
-          placeholder="Search Employee"
-          class="search-input"
-          [(ngModel)]="searchKey"
-          (input)="applyFilter()"
-        />
+        <img class="search-img" src="/magnifying_glass.svg" alt="magnifying_glass" />
+        <input type="text" placeholder="Search Employee" class="search-input" [(ngModel)]="searchKey"
+          (input)="applyFilter()" />
       </div>
 
       <div class="status-filter">
@@ -26,6 +17,7 @@
             <option value="">Filter Status</option>
             <option value="Not Approved">Not Approved</option>
             <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
           </select>
         </div>
       </div>
@@ -115,6 +107,16 @@
             </td>
           </ng-container>
 
+          <!-- Date Submitted Column -->
+          <ng-container matColumnDef="remarks_message">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Remarks
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.remarks_message || 'None' }}
+            </td>
+          </ng-container>
+
           <!-- Status Column -->
           <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef>Status</th>
@@ -122,13 +124,13 @@
               <!-- Conditional rendering for different roles -->
 
               {{
-                element.status === "Rejected"
-                  ? "Rejected"
-                  : roleId === 5
-                  ? element.signature_asds
-                    ? "Approved"
-                    : "Not Approved"
-                  : "Pending"
+              element.status === "Rejected"
+              ? "Rejected"
+              : roleId === 5
+              ? element.signature_asds
+              ? "Approved"
+              : "Not Approved"
+              : "Pending"
               }}
             </td>
           </ng-container>
@@ -141,11 +143,8 @@
           </tr>
         </table>
 
-        <mat-paginator
-          [pageSizeOptions]="[5, 10, 20]"
-          showFirstLastButtons
-          aria-label="Select page of periodic elements"
-        >
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+          aria-label="Select page of periodic elements">
         </mat-paginator>
       </div>
     </div>

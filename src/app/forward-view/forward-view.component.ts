@@ -41,8 +41,9 @@ export class ForwardViewComponent implements OnInit {
     'type_of_loan',
     'purpose',
     'date_submitted',
+    'remarks_message',
     'action',
-    'status',
+    'status'
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

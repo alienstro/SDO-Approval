@@ -15,7 +15,7 @@ interface LoginRequest {
   providedIn: 'root',
 })
 export class RequestService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(data: LoginRequest) {
     return this.http.post<LoginResponse>(API_URL + 'login', data);
@@ -48,6 +48,11 @@ export class RequestService {
   // submitApprovalSDS(data: any): Observable<any> {
   //   return this.http.post(`${API_URL}/loanApplication/submitApprovalSDS`, data);
   // }
+
+  rejectApprovalApplication(data: any): Observable<any> {
+    console.log(data);
+    return this.http.post(`${API_URL}` + `/loanApplication/rejectApplicationOffice`, data);
+  }
 
   submitSignatureASDS(data: any): Observable<any> {
     return this.http.post(
