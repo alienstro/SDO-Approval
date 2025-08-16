@@ -43,7 +43,7 @@ export class ForwardViewComponent implements OnInit {
     'date_submitted',
     'remarks_message',
     'action',
-    'status'
+    'status',
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -98,6 +98,8 @@ export class ForwardViewComponent implements OnInit {
       };
     });
     console.log(this.mergedDetails);
+    this.mergedDetails.sort((a, b) => b.application_id - a.application_id);
+
     this.dataSource.data = this.mergedDetails;
   }
 
