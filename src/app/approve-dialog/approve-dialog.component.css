@@ -32,9 +32,7 @@
 
 .signature-container {
     display: flex;
-    padding: 1rem 1rem 0 1rem;
-    height: 12rem;
-
+    padding: 1rem;
 }
 
 /* .signature {
@@ -48,9 +46,9 @@
 .signature-canvas {
     border: 1px solid #ddd;
     cursor: crosshair;
-    width: 100%; /* Makes it responsive */
-    height: 300px; /* Increase height for more space */
-    max-width: 800px; /* Maximum width for larger screens */
+    width: 100%; 
+    height: 300px;
+    max-width: 800px; 
     border-radius: 8px;
     background-color: transparent;
 }
@@ -58,8 +56,8 @@
 .footer {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    padding: 1rem;
+    justify-content: space-between;
+    padding: 0 1rem 1rem 1rem;
     gap: 1rem;
 }
 
@@ -100,5 +98,27 @@ canvas {
     border: 1px solid #ddd;
     cursor: crosshair;
     height: 9rem;
+}
+
+.right-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.signature-image {
+    height: 3rem;
+    width: 6rem;
+}
+
+.signature-button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    padding: 0.5rem;
 }
 

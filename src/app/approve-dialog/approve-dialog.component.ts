@@ -1,4 +1,11 @@
-import { Component, ElementRef, Inject, InjectionToken, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  InjectionToken,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -19,7 +26,7 @@ import SignaturePad from 'signature_pad';
   templateUrl: './approve-dialog.component.html',
   styleUrl: './approve-dialog.component.css',
 })
-export class EndorseComponent {
+export class EndorseComponent implements OnInit {
   @ViewChild('signaturePad', { static: true })
   signaturePadElement!: ElementRef<HTMLCanvasElement>;
   @ViewChild('fileInput', { static: false })
@@ -29,6 +36,7 @@ export class EndorseComponent {
   application_id!: number;
   staff_id!: number;
   department_id!: string;
+  staffInformation: any;
 
   constructor(
     public dialogRef: MatDialogRef<EndorseComponent>,
@@ -100,8 +108,15 @@ export class EndorseComponent {
     }
   }
 
+  loadStaffSignatureToPad(): void {
+    const sig = this.staffInformation?.[0]?.signature;
+    if (sig && this.signaturePad) {
+      this.signaturePad.fromDataURL(sig);
+    }
+  }
+
   confirm(): void {
-      if (this.signaturePad.isEmpty()) {
+    if (this.signaturePad.isEmpty()) {
       this.snackbar.open(
         'Please provide a signature before confirming.',
         'Close',
@@ -114,7 +129,7 @@ export class EndorseComponent {
     const staff_id = this.staff_id;
     const approved = 'Approved';
 
-     const signatureImage = this.signaturePad.toDataURL('image/png');
+    const signatureImage = this.signaturePad.toDataURL('image/png');
 
     const data = {
       signature: signatureImage,
@@ -142,15 +157,27 @@ export class EndorseComponent {
         },
         (error) => {
           console.error('Error uploading signature:', error);
-          this.snackbar.open('Failed to upload signature.', 'close', {duration: 3000});
+          this.snackbar.open('Failed to upload signature.', 'close', {
+            duration: 3000,
+          });
         }
       );
     } else {
-      this.snackbar.open('Unauthorized Access', 'close', {duration: 3000})
+      this.snackbar.open('Unauthorized Access', 'close', { duration: 3000 });
     }
   }
 
   cancel(): void {
     this.dialogRef.close();
+  }
+
+  ngOnInit(): void {
+    this.applicationService
+      .getStaffDetailsById(this.staff_id)
+      .subscribe((staff) => {
+        this.staffInformation = Array.isArray(staff) ? staff : [staff];
+
+        console.log('staff information: ', this.staffInformation);
+      });
   }
 }

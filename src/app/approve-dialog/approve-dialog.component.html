@@ -1,52 +1,62 @@
-<!-- <div class="endorse">
-    <div class="main">
-        <div class="header">
-            <h1>Approval</h1>
-        </div>
-
-        <div class="body">
-            <p>Are you sure you want to approve this?</p>
-        </div>
-
-        <div class="footer">
-            <div class="cancel">
-                <button class="button-1" (click)="cancel()">Cancel</button>
-            </div>
-            <div class="confirm">
-                <button class="button-1" (click)="confirm()">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="endorse">
-    <div class="main">
-        <div class="header">
-            <h1>Signature</h1>
+  <div class="main">
+    <div class="header">
+      <h1>Signature</h1>
 
-            <div class="header-buttons">
-                <div class="upload">
-                    <button class="button-1" (click)="triggerFileInput()">Upload</button>
-                    <input type="file" #fileInput accept="image/*" (change)="onFileSelected($event)" hidden />
-                </div>
-                <div class="undo">
-                    <button class="button-1" (click)="clearSignature()">Undo</button>
-                </div>
-            </div>
-
+      <div class="header-buttons">
+        <div class="upload">
+          <button class="button-1" (click)="triggerFileInput()">Upload</button>
+          <input
+            type="file"
+            #fileInput
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            hidden
+          />
         </div>
-
-        <div class="signature-container">
-            <canvas #signaturePad class="signature-canvas" width="800" height="300"></canvas>
+        <div class="undo">
+          <button class="button-1" (click)="clearSignature()">Undo</button>
         </div>
-
-        <div class="footer">
-            <div class="cancel">
-                <button class="button-1" (click)="cancel()">Cancel</button>
-            </div>
-            <div class="confirm">
-                <button class="button-1" (click)="confirm()">Confirm</button>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="signature-container">
+      <canvas
+        #signaturePad
+        class="signature-canvas"
+        width="800"
+        height="300"
+      ></canvas>
+    </div>
+
+    <div class="footer">
+      <div class="left-footer">
+        <button
+          class="signature-button"
+          (click)="loadStaffSignatureToPad()"
+          [disabled]="!staffInformation?.[0]?.signature"
+        >
+          <ng-container *ngIf="staffInformation?.[0]?.signature; else noSig">
+            <img
+              class="signature-image"
+              [src]="staffInformation?.[0]?.signature"
+              alt="Signature"
+            />
+          </ng-container>
+          <ng-template #noSig>
+            <span>No signature available</span>
+          </ng-template>
+        </button>
+      </div>
+
+      <div class="right-footer">
+        <div class="cancel">
+          <button class="button-1" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="confirm">
+          <button class="button-1" (click)="confirm()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

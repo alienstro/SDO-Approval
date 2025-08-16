@@ -120,6 +120,10 @@ export class ApplicationService {
     );
   }
 
+  getStaffDetailsById(staff_id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${API_URL}/staffUser/${staff_id}`);
+  }
+
   getCoMakersInformationById(
     applicationId: number
   ): Observable<CoMakersInformation[]> {
