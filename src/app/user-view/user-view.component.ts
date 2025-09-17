@@ -1346,9 +1346,9 @@ export class UserViewComponent {
   
   openReject(): void {
     this.dialog.open(RejectDialogComponent, {
-      width: '50rem',
+     width: '50rem',
       maxWidth: '50rem',
-      height: '16rem',
+      height: '16rem', 
       data: { application_id: this.application_id },
     });
   }
