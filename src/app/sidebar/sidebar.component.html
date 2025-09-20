@@ -8,16 +8,16 @@
 
         <div class="info-container">
           <p class="profile-name">{{ firstName }} {{ lastName }}</p>
-          <p class="profile-department" *ngIf="department_id === 6">ASDS</p>
-          <p class="profile-department" *ngIf="department_id === 7">SDS</p>
+          <p class="profile-department" *ngIf="department_id === 5">ASDS</p>
+          <p class="profile-department" *ngIf="department_id === 6">SDS</p>
         </div>
       </div>
 
       <div class="routes">
-        <button>
+        <button (click)="applications()">
           <img src="/forms.svg" alt="applicant forms img" />
 
-          <div class="button-title" (click)="applications()">
+          <div class="button-title">
             <span>Applications</span>
           </div>
         </button>

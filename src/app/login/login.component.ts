@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 
     const roleId = parseInt(role);
 
-    if (roleId === 5) {
+    if (roleId === 5 || roleId === 6) {
       this.router.navigate(['/forward-view']);
       this.snackBar.open('Successfully Logged In', 'Close', { duration: 3000 });
     } else {

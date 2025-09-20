@@ -162,6 +162,28 @@ export class EndorseComponent implements OnInit {
           });
         }
       );
+    } else if (departmentId === 6) {
+      console.log('Department: SDS');
+      this.requestService.submitSignatureSDS(data).subscribe(
+        (response) => {
+          this.snackbar.open('Approval updated successfully.', '', {
+            duration: 3000,
+          });
+          this.applicationService.updateApprovalDetails(
+            approved,
+            this.application_id,
+            departmentId
+          );
+          this.dialogRef.close();
+          this.router.navigate(['/forward-view']);
+        },
+        (error) => {
+          console.error('Error uploading signature:', error);
+          this.snackbar.open('Failed to upload signature.', 'close', {
+            duration: 3000,
+          });
+        }
+      );
     } else {
       this.snackbar.open('Unauthorized Access', 'close', { duration: 3000 });
     }

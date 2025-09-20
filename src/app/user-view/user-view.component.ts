@@ -1345,6 +1345,8 @@ export class UserViewComponent {
   }
   
   openReject(): void {
+    console.log(this.loanDetails[0])
+
     this.dialog.open(RejectDialogComponent, {
      width: '50rem',
       maxWidth: '50rem',

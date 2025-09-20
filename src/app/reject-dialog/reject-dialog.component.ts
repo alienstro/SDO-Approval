@@ -15,7 +15,7 @@ import { ApplicationService } from '../services/application.service';
   standalone: false,
 
   templateUrl: './reject-dialog.component.html',
-  styleUrl: './reject-dialog.component.css'
+  styleUrl: './reject-dialog.component.css',
 })
 export class RejectDialogComponent {
   application_id!: number;
@@ -50,49 +50,61 @@ export class RejectDialogComponent {
     const departmentId = parseInt(department_id);
     const remarks = this.remarks_message;
 
+    let data: any = [];
+
     if (departmentId === 5) {
-      const data = {
+      data = {
         application_id: this.application_id,
         department_id: department_id,
         staff_id: staff_id,
         remarks: remarks,
-        office: 'ASDS'
+        office: 'ASDS',
       };
 
       console.log('ASDS');
-      this.requestService.rejectApprovalApplication(data).subscribe({
-        next: (res) => {
-          console.log(res);
-          if (res.success) {
-            this.snackbar.open('Rejected Application Successfully!', '', {
-              duration: 3000,
-            });
-            this.dialogRef.close();
-            this.applicationService.getLoanApplication();
-            this.router.navigate(['/forward-view']);
-          } else {
-            this.snackbar.open('Failed to reject. Please try again.', '', {
-              duration: 3000,
-            });
-          }
-        },
-        error: (err) => {
-          console.error(err);
-          this.snackbar.open(
-            'An error occurred while rejected the application.',
-            '',
-            {
-              duration: 3000,
-            }
-          );
-        },
-      });
-    }
-    else {
+    } else if (departmentId === 6) {
+      data = {
+        application_id: this.application_id,
+        department_id: department_id,
+        staff_id: staff_id,
+        remarks: remarks,
+        office: 'SDS',
+      };
+      console.log('SDS');
+    } else {
       this.snackbar.open('Error Department Role', 'Close', {
         duration: 3000,
       });
+      return;
     }
+
+    this.requestService.rejectApprovalApplication(data).subscribe({
+      next: (res) => {
+        console.log(res);
+        if (res.success) {
+          this.snackbar.open('Rejected Application Successfully!', '', {
+            duration: 3000,
+          });
+          this.dialogRef.close();
+          this.applicationService.getLoanApplication();
+          this.router.navigate(['/forward-view']);
+        } else {
+          this.snackbar.open('Failed to reject. Please try again.', '', {
+            duration: 3000,
+          });
+        }
+      },
+      error: (err) => {
+        console.error(err);
+        this.snackbar.open(
+          'An error occurred while rejected the application.',
+          '',
+          {
+            duration: 3000,
+          }
+        );
+      },
+    });
   }
 
   cancel(): void {

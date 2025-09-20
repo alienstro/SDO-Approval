@@ -114,12 +114,13 @@ export class ForwardViewComponent implements OnInit {
         data.last_name.toLowerCase().includes(search) ||
         data.first_name.toLowerCase().includes(search);
 
-      // Match your display logic for status
-      let mappedStatus = 'Pending';
+      let mappedStatus: string;
       if (data.status === 'Rejected') {
         mappedStatus = 'Rejected';
       } else if (this.roleId === 5) {
         mappedStatus = data.signature_asds ? 'Approved' : 'Not Approved';
+      } else if (this.roleId === 6) {
+        mappedStatus = data.signature_sds ? 'Approved' : 'Not Approved'; 
       } else {
         mappedStatus = 'Pending';
       }
