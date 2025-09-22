@@ -212,10 +212,12 @@ export class UserViewComponent {
         c.charCodeAt(0)
       );
 
-      if (base64.includes('jpeg') || base64.includes('jpg')) {
+      if (base64.includes('data:image/jpeg') || base64.includes('data:image/jpg')) {
         return await pdfDoc.embedJpg(byteArray);
-      } else {
+      } else if (base64.includes('data:image/png')) {
         return await pdfDoc.embedPng(byteArray);
+      } else {
+        throw new Error('Unsupported image format. Only JPEG and PNG are supported.');
       }
     } catch (error) {
       console.error('Error converting base64 to image:', error);
@@ -280,6 +282,8 @@ export class UserViewComponent {
     const aProcessedSignatureImage = a_processed_signature
       ? await this.convertBase64ToImage(pdfDoc, a_processed_signature)
       : null;
+
+  
 
     const recommendingSignatureImageSDS = recommending_signature_sds
       ? await this.convertBase64ToImage(pdfDoc, recommending_signature_sds)
