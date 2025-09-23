@@ -15,7 +15,7 @@ yarn install
 ## Prerequisites
 
 Before running the project, ensure you have the following installed:
-- **Node.js**: Version 22 
+- **Node.js**: Version 24
 - **Yarn**: Version 1.22
 
 ## Startup
@@ -39,3 +39,4 @@ If you encounter any problems or have suggestions, please [open an issue](https:
 ## Contact
 
 For further inquiries, reach out to us at 202210599@gordoncollege.edu.ph
+
